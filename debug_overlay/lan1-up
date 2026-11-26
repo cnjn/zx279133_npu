@@ -1,0 +1,37 @@
+#!/bin/sh
+# Lab UART image, one shot: LAN1 drivers -> eth0 -> address -> SSH/scp/SFTP.
+# Usage: lan1-up [ADDRESS/PREFIX]   (default 192.168.1.1/24)
+# Safe to run again: finished steps are skipped. Nothing touches PON or flash.
+PATH=/debug/bin:/sbin:/bin:/usr/sbin:/usr/bin
+cidr=${1:-192.168.1.1/24}
+addr=${cidr%/*}
+
+step() { printf '\n== %s\n' "$*"; }
+die() { printf 'lan1-up: %s\n' "$*" >&2; exit 1; }
+
+step "drivers"
+lab-modules || die "driver loading failed"
+
+step "register eth0 (LAN1, switch port 4)"
+lan1-register --apply || die "lan1-register failed"
+ip link set dev eth0 up || die "cannot bring eth0 up"
+
+# Cycling the port makes the vendor switch driver renegotiate the link.
+step "restart switch port 4"
+siswitch -spen 4 0
+sleep 3
+siswitch -spen 4 1
+sleep 3
+
+step "address $cidr"
+if ip -4 addr show dev eth0 | grep -q "inet $addr/"; then
+    echo "  already set"
+else
+    ip addr add "$cidr" dev eth0 || die "cannot add $cidr"
+fi
+ip -4 addr show dev eth0
+
+step "ssh"
+lab-sshd "$addr" || die "ssh server did not start"
+
+printf '\nReady. From a PC on LAN1:  ssh root@%s   scp FILE root@%s:/tmp/\n' "$addr" "$addr"

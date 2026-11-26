@@ -1,0 +1,28 @@
+version: 0x0001.0x0108.0x0491570c
+=== A
+mac sa lookup fail cnt:                           76628
+protocol action trap cnt:                         76633
+port id 15 output unicast cnt:            65169
+port id 36 output multicast cnt:          40
+port id 37 output multicast cnt:          40
+port id 56 output multicast cnt:          20
+port id 60 output multicast cnt:          20
+port id 61 output multicast cnt:          20
+port id 62 output multicast cnt:          20
+port id 63 output multicast cnt:          20
+=== B
+mac sa lookup fail cnt:                           76707
+protocol action trap cnt:                         76712
+port id 15 output unicast cnt:            65246
+port id 36 output multicast cnt:          194
+port id 37 output multicast cnt:          196
+port id 56 output multicast cnt:          99
+port id 60 output multicast cnt:          97
+port id 61 output multicast cnt:          99
+port id 62 output multicast cnt:          97
+port id 63 output multicast cnt:          97
+version: 0x0001.0x0108.0x0491570c
+DONE
+[exit 0]
+250 packets transmitted, 250 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.401/0.681/1.200/0.099 ms

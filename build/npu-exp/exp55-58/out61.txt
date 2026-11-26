@@ -1,0 +1,40 @@
+=== p4996_f0_1
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+=== p4996_f2_3
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+=== p4996_f4_5
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+=== p4996_f6_7
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+=== p4996_f8_9
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+=== p4996_f10_11
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+=== p4996_f12_13
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+=== p4996_f14_15
+
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel

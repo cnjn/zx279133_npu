@@ -1,0 +1,6 @@
+{"label": "orig", "word": "02906a760003a001", "delta": {"unicast": 96, "multicast": 2, "boardcast": 0}, "ping_rx": 30}
+{"label": "m0 V=15", "word": "02906a2e0003a1e5", "delta": {"unicast": 54, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"label": "m0 V=14", "word": "02906a2e0003a1c5", "delta": {"unicast": 0, "multicast": 0, "boardcast": 114}, "ping_rx": 30}
+{"label": "m1 V=15", "word": "02906a2e0003a5e5", "delta": {"unicast": 0, "multicast": 0, "boardcast": 72}, "ping_rx": 30}
+{"label": "m1 V=14", "word": "02906a2e0003a5c5", "delta": {"unicast": 48, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"restored": "0x2906a760003a001", "ok": true}

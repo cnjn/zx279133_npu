@@ -1,0 +1,3302 @@
+=== echo table_index=3f inner_tag=11223344 outer_tag=55667788 dmac_l32=99aabbcc dmac_h16=ddee inner_tag_en=1 outer_tag_en=0 > acl_debug/acl_mac_encap_table_set
+
+
+[np_user_table_test_acl_mac_encap_table_set] input raw len=115
+ table_index=3f inner_tag=11223344 outer_tag=55667788 dmac_l32=99aabbcc dmac_h16=ddee inner_tag_en=1 outer_tag_en=0
+ 
+table_index=63=0x3f (8bit)
+
+*** check ACL_MAC_ENCAP_TABLE_T :
+inner_tag=287454020=0x11223344 (32bit)
+outer_tag=1432778632=0x55667788 (32bit)
+dmac_l32=2578103244=0x99aabbcc (32bit)
+dmac_h16=56814=0xddee (16bit)
+inner_tag_en=1=0x1 (1bit)
+outer_tag_en=0=0x0 (1bit)
+[se_smmu0_read] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1b88, bit_off 0x1f80, addr_ind 0xde380 
+writing eram128: 0x11223344 0x55667788 0x99aabbcc 0x4000ddee 
+[se_smmu0_write] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_mac_encap_table_set] set sucess! table_index=63
+[se_smmu0_read] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3f used_cnt=1
+
+  acl_mac_encap_table_data:
+   0 bit  0~ 31=0x11223344
+   1 bit 32~ 63=0x55667788
+   2 bit 64~ 95=0x99aabbcc
+   3 bit 96~127=0x4000ddee
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) inner_tag =287454020 =0x11223344 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) outer_tag =1432778632 =0x55667788 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) dmac_l32 =2578103244 =0x99aabbcc (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) dmac_h16 =56814 =0xddee (16 bit)
+  bit(112~125), data[ 3] RSP[ 0] (16~29) rsv =0 =0x0 (14 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) inner_tag_en =1 =0x1 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tag_en =0 =0x0 (1 bit)
+[np_user_table_test_acl_mac_encap_table_set] success! table_index=63
+=== echo 122 63 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x4000ddee
+0x99aabbcc
+0x55667788
+0x11223344
+
+=== echo table_index=3e outer_tag_en=1 > acl_debug/acl_mac_encap_table_set
+
+
+[np_user_table_test_acl_mac_encap_table_set] input raw len=30
+ table_index=3e outer_tag_en=1
+ 
+table_index=62=0x3e (8bit)
+
+*** check ACL_MAC_ENCAP_TABLE_T :
+outer_tag_en=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1b88, bit_off 0x1f00, addr_ind 0xde300 
+writing eram128: 0x0 0x0 0x0 0x80000000 
+[se_smmu0_write] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_mac_encap_table_set] set sucess! table_index=62
+[se_smmu0_read] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3e used_cnt=1
+
+  acl_mac_encap_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x80000000
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) inner_tag =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) outer_tag =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) dmac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) dmac_h16 =0 =0x0 (16 bit)
+  bit(112~125), data[ 3] RSP[ 0] (16~29) rsv =0 =0x0 (14 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) inner_tag_en =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tag_en =1 =0x1 (1 bit)
+[np_user_table_test_acl_mac_encap_table_set] success! table_index=62
+=== echo 122 62 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x80000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo table_index=1 dport=1111 sport=2222 > acl_debug/acl_wan_link_udp_encap_table_set
+
+
+[np_user_table_test_acl_wan_link_udp_encap_table_set] input raw len=36
+ table_index=1 dport=1111 sport=2222
+ 
+table_index=1=0x1 (5bit)
+
+*** check ACL_WAN_LINK_UDP_ENCAP_TABLE_T :
+dport=4369=0x1111 (16bit)
+sport=8738=0x2222 (16bit)
+[se_smmu0_read] addr_ind : 0xd4000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a80, bit_off 0x20, addr_ind 0xd4000 
+writing eram128: 0x0 0x22221111 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd4000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_udp_encap_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xd4000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_wan_link_udp_encap_table_data:
+   0 bit  0~ 31=0x22221111
+  bit(  0~ 15), data[ 0] RSP[ 0] ( 0~15) dport =4369 =0x1111 (16 bit)
+  bit( 16~ 31), data[ 0] RSP[ 0] (16~31) sport =8738 =0x2222 (16 bit)
+[np_user_table_test_acl_wan_link_udp_encap_table_set] success! table_index=1
+=== echo 120 1 1 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd4020, table_word32_len : 4
+cmd_ind:0x44000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 1
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x22221111
+
+=== echo table_index=1 info0=a0a0a0a0 info1=b1b1b1b1 info2=c2c2c2c2 info3=d3d3d3d3 > acl_debug/acl_l2tp_vxlan_encap_table_set
+
+
+[np_user_table_test_acl_l2tp_vxlan_encap_table_set] input raw len=74
+ table_index=1 info0=a0a0a0a0 info1=b1b1b1b1 info2=c2c2c2c2 info3=d3d3d3d3
+ 
+
+*** check ACL_L2TP_VXLAN_ENCAP_TABLE_T :
+info3=3553874899=0xd3d3d3d3 (32bit)
+info2=3267543746=0xc2c2c2c2 (32bit)
+info1=2981212593=0xb1b1b1b1 (32bit)
+info0=2694881440=0xa0a0a0a0 (32bit)
+[se_smmu0_read] addr_ind : 0xd4400, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a88, bit_off 0x0, addr_ind 0xd4400 
+writing eram128: 0xd3d3d3d3 0xc2c2c2c2 0xb1b1b1b1 0xa0a0a0a0 
+[se_smmu0_write] addr_ind : 0xd4400, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_l2tp_vxlan_encap_table_set] set sucess! table_index=0
+[se_smmu0_read] addr_ind : 0xd4400, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x0 used_cnt=1
+
+  acl_l2tp_vxlan_encap_table_data:
+   0 bit  0~ 31=0xd3d3d3d3
+   1 bit 32~ 63=0xc2c2c2c2
+   2 bit 64~ 95=0xb1b1b1b1
+   3 bit 96~127=0xa0a0a0a0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) info3 =3553874899 =0xd3d3d3d3 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) info2 =3267543746 =0xc2c2c2c2 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) info1 =2981212593 =0xb1b1b1b1 (32 bit)
+  bit( 96~127), data[ 3] RSP[ 0] ( 0~31) info0 =2694881440 =0xa0a0a0a0 (32 bit)
+[np_user_table_test_acl_l2tp_vxlan_encap_table_set] success! table_index=0
+=== echo 121 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd4480, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo table_index=1 ipv6_addr0=20010db8 ipv6_addr1=11111111 ipv6_addr2=22222222 ipv6_addr3=33333333 > acl_debug/acl_wan_link_local_ipv6_table_set
+
+
+[np_user_table_test_acl_wan_link_local_ipv6_table_set] input raw len=94
+ table_index=1 ipv6_addr0=20010db8 ipv6_addr1=11111111 ipv6_addr2=22222222 ipv6_addr3=33333333
+ 
+table_index=1=0x1 (5bit)
+
+*** check ACL_WAN_LINK_LOCAL_IPV6_TABLE_T :
+ipv6_addr3=858993459=0x33333333 (32bit)
+ipv6_addr2=572662306=0x22222222 (32bit)
+ipv6_addr1=286331153=0x11111111 (32bit)
+ipv6_addr0=536939960=0x20010db8 (32bit)
+[se_smmu0_read] addr_ind : 0xd2080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a40, bit_off 0x80, addr_ind 0xd2080 
+writing eram128: 0x33333333 0x22222222 0x11111111 0x20010db8 
+[se_smmu0_write] addr_ind : 0xd2080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_local_ipv6_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xd2080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_wan_link_local_ipv6_table_data:
+   0 bit  0~ 31=0x33333333
+   1 bit 32~ 63=0x22222222
+   2 bit 64~ 95=0x11111111
+   3 bit 96~127=0x20010db8
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) ipv6_addr3 =858993459 =0x33333333 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv6_addr2 =572662306 =0x22222222 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) ipv6_addr1 =286331153 =0x11111111 (32 bit)
+  bit( 96~127), data[ 3] RSP[ 0] ( 0~31) ipv6_addr0 =536939960 =0x20010db8 (32 bit)
+[np_user_table_test_acl_wan_link_local_ipv6_table_set] success! table_index=1
+=== echo 118 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd2080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x20010db8
+0x11111111
+0x22222222
+0x33333333
+
+=== echo table_index=1 ipv6_addr0=20010db9 ipv6_addr1=44444444 ipv6_addr2=55555555 ipv6_addr3=66666666 > acl_debug/acl_wan_link_remote_ipv6_table_set
+
+
+[np_user_table_test_acl_wan_link_remote_ipv6_table_set] input raw len=94
+ table_index=1 ipv6_addr0=20010db9 ipv6_addr1=44444444 ipv6_addr2=55555555 ipv6_addr3=66666666
+ 
+table_index=1=0x1 (5bit)
+
+*** check ACL_WAN_LINK_REMOTE_IPV6_TABLE_T :
+ipv6_addr3=1717986918=0x66666666 (32bit)
+ipv6_addr2=1431655765=0x55555555 (32bit)
+ipv6_addr1=1145324612=0x44444444 (32bit)
+ipv6_addr0=536939961=0x20010db9 (32bit)
+[se_smmu0_read] addr_ind : 0xd3080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a60, bit_off 0x80, addr_ind 0xd3080 
+writing eram128: 0x66666666 0x55555555 0x44444444 0x20010db9 
+[se_smmu0_write] addr_ind : 0xd3080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_remote_ipv6_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xd3080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_wan_link_remote_ipv6_table_data:
+   0 bit  0~ 31=0x66666666
+   1 bit 32~ 63=0x55555555
+   2 bit 64~ 95=0x44444444
+   3 bit 96~127=0x20010db9
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) ipv6_addr3 =1717986918 =0x66666666 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv6_addr2 =1431655765 =0x55555555 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) ipv6_addr1 =1145324612 =0x44444444 (32 bit)
+  bit( 96~127), data[ 3] RSP[ 0] ( 0~31) ipv6_addr0 =536939961 =0x20010db9 (32 bit)
+[np_user_table_test_acl_wan_link_remote_ipv6_table_set] success! table_index=1
+=== echo 119 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd3080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x20010db9
+0x44444444
+0x55555555
+0x66666666
+
+=== echo table_index=1 ipv4.ip_ver=4 ipv4.header_len=5 ipv4.tos=a1 ipv4.ttl=b2 ipv4.ipv4_protocol=c3 ipv4.dip=d4d5d6d7 ipv4.sip=e4e5e6e7 ipv4.init_checksum=f1f2 ipv4.identification=0102 > acl_debug/acl_wan_link_ip_encap_table_set
+
+
+[np_user_table_test_acl_wan_link_ip_encap_table_set] input raw len=177
+ table_index=1 ipv4.ip_ver=4 ipv4.header_len=5 ipv4.tos=a1 ipv4.ttl=b2 ipv4.ipv4_protocol=c3 ipv4.dip=d4d5d6d7 ipv4.sip=e4e5e6e7 ipv4.init_checksum=f1f2 ipv4.identification=0102
+ 
+table_index=1=0x1 (5bit)
+
+*** check ACL_WAN_LINK_IP_ENCAP_TABLE_T :
+ipv4.identification=258=0x102 (16bit)
+ipv4.init_checksum=61938=0xf1f2 (16bit)
+ipv4.sip=3840272103=0xe4e5e6e7 (32bit)
+ipv4.dip=3570783959=0xd4d5d6d7 (32bit)
+ipv4.ipv4_protocol=195=0xc3 (8bit)
+ipv4.ttl=178=0xb2 (8bit)
+ipv4.tos=161=0xa1 (8bit)
+ipv4.header_len=5=0x5 (4bit)
+ipv4.ip_ver=4=0x4 (4bit)
+[my_ipv4_checksum_calc] temp_checksum=0xa145 p_u16_ip_head[0]=0xa145
+[my_ipv4_checksum_calc] temp_checksum=0xa145 p_u16_ip_head[1]=0x0
+[my_ipv4_checksum_calc] temp_checksum=0xa346 p_u16_ip_head[2]=0x201
+[my_ipv4_checksum_calc] temp_checksum=0xa346 p_u16_ip_head[3]=0x0
+[my_ipv4_checksum_calc] temp_checksum=0x166f8 p_u16_ip_head[4]=0xc3b2
+[my_ipv4_checksum_calc] temp_checksum=0x166f8 p_u16_ip_head[5]=0x0
+[my_ipv4_checksum_calc] temp_checksum=0x24cdc p_u16_ip_head[6]=0xe5e4
+[my_ipv4_checksum_calc] temp_checksum=0x334c2 p_u16_ip_head[7]=0xe7e6
+[my_ipv4_checksum_calc] temp_checksum=0x40a96 p_u16_ip_head[8]=0xd5d4
+[my_ipv4_checksum_calc] temp_checksum=0x4e26c p_u16_ip_head[9]=0xd7d6
+[my_ipv4_checksum_calc] temp_checksum=0x4e26c u16_checksum=0xe270 table_data->ipv4.init_checksum=0x8f1d
+[se_smmu0_read] addr_ind : 0xd1080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a20, bit_off 0x80, addr_ind 0xd1080 
+writing eram128: 0x8f1d0102 0xe4e5e6e7 0xd4d5d6d7 0x45a1b2c3 
+[se_smmu0_write] addr_ind : 0xd1080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_ip_encap_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xd1080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_wan_link_ip_encap_table_data:
+   0 bit  0~ 31=0x8f1d0102
+   1 bit 32~ 63=0xe4e5e6e7
+   2 bit 64~ 95=0xd4d5d6d7
+   3 bit 96~127=0x45a1b2c3
+  bit(  0~ 15), data[ 0] RSP[ 3] ( 0~15) ipv4.identification =258 =0x102 (16 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) ipv4.init_checksum =36637 =0x8f1d (16 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv4.sip =3840272103 =0xe4e5e6e7 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) ipv4.dip =3570783959 =0xd4d5d6d7 (32 bit)
+  bit( 96~103), data[ 3] RSP[ 0] ( 0~ 7) ipv4.ipv4_protocol =195 =0xc3 (8 bit)
+  bit(104~111), data[ 3] RSP[ 0] ( 8~15) ipv4.ttl =178 =0xb2 (8 bit)
+  bit(112~119), data[ 3] RSP[ 0] (16~23) ipv4.tos =161 =0xa1 (8 bit)
+  bit(120~123), data[ 3] RSP[ 0] (24~27) ipv4.header_len =5 =0x5 (4 bit)
+  bit(124~127), data[ 3] RSP[ 0] (28~31) ipv4.ip_ver =4 =0x4 (4 bit)
+[np_user_table_test_acl_wan_link_ip_encap_table_set] success! table_index=1
+=== echo 117 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd1080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x45a1b2c3
+0xd4d5d6d7
+0xe4e5e6e7
+0x8f1d0102
+
+=== echo table_index=2 ipv6.ip_ver=6 ipv6.dscp=a1 ipv6.hop_limit=b2 ipv6.next_head=c3 ipv6.flow_lable=12345 > acl_debug/acl_wan_link_ip_encap_table_set
+
+
+[np_user_table_test_acl_wan_link_ip_encap_table_set] input raw len=99
+ table_index=2 ipv6.ip_ver=6 ipv6.dscp=a1 ipv6.hop_limit=b2 ipv6.next_head=c3 ipv6.flow_lable=12345
+ 
+table_index=2=0x2 (5bit)
+
+*** check ACL_WAN_LINK_IP_ENCAP_TABLE_T :
+ipv6.next_head=195=0xc3 (8bit)
+ipv6.hop_limit=178=0xb2 (8bit)
+ipv6.ip_ver=6=0x6 (4bit)
+[se_smmu0_read] addr_ind : 0xd1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a20, bit_off 0x100, addr_ind 0xd1100 
+writing eram128: 0x0 0x0 0xc3b20000 0x60000000 
+[se_smmu0_write] addr_ind : 0xd1100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_ip_encap_table_set] set sucess! table_index=2
+[se_smmu0_read] addr_ind : 0xd1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=1
+
+  acl_wan_link_ip_encap_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0xc3b20000
+   3 bit 96~127=0x60000000
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) ipv6.ipv6_rsv2 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv6.ipv6_rsv1 =0 =0x0 (32 bit)
+  bit( 64~ 79), data[ 2] RSP[ 1] ( 0~15) ipv6.ipv6_rsv0 =0 =0x0 (16 bit)
+  bit( 80~ 87), data[ 2] RSP[ 1] (16~23) ipv6.hop_limit =178 =0xb2 (8 bit)
+  bit( 88~ 95), data[ 2] RSP[ 1] (24~31) ipv6.next_head =195 =0xc3 (8 bit)
+  bit( 96~115), data[ 3] RSP[ 0] ( 0~19) ipv6.flow_label =0 =0x0 (20 bit)
+  bit(116~123), data[ 3] RSP[ 0] (20~27) ipv6.tc =0 =0x0 (8 bit)
+  bit(124~127), data[ 3] RSP[ 0] (28~31) ipv6.ip_ver =6 =0x6 (4 bit)
+[np_user_table_test_acl_wan_link_ip_encap_table_set] success! table_index=2
+=== echo 117 2 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd1100, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x60000000
+0xc3b20000
+0x00000000
+0x00000000
+
+=== echo table_index=1 add_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=25
+ table_index=1 add_flag=1
+ 
+table_index=1=0x1 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+add_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x40, addr_ind 0xd0000 
+writing eram128: 0x0 0x0 0x0 0x80000000 
+[se_smmu0_write] addr_ind : 0xd0000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xd0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x80000000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =1 =0x1 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=1
+=== echo 116 1 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0040, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x80000000
+0x00000000
+
+=== echo table_index=2 pppoe_add_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=31
+ table_index=2 pppoe_add_flag=1
+ 
+table_index=2=0x2 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+pppoe_add_flag=1=0x1 (1bit)
+add_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x80, addr_ind 0xd0080 
+writing eram128: 0x0 0xc0000000 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=2
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0xc0000000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =1 =0x1 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =1 =0x1 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=2
+=== echo 116 2 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0xc0000000
+0x00000000
+
+=== echo table_index=3 ds_lite_add_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=33
+ table_index=3 ds_lite_add_flag=1
+ 
+table_index=3=0x3 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+ds_lite_add_flag=1=0x1 (1bit)
+add_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0xc0, addr_ind 0xd0080 
+writing eram128: 0x0 0x0 0x0 0xa0000000 
+[se_smmu0_write] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=3
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0xa0000000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =1 =0x1 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =1 =0x1 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=3
+=== echo 116 3 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0x484080, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484280, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4840c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4842c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484100, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484300, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+product_type_check
+[se_smmu0_read] addr_ind : 0xd00c0, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0xa0000000
+0x00000000
+
+=== echo table_index=4 v6rd_add_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=30
+ table_index=4 v6rd_add_flag=1
+ 
+table_index=4=0x4 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+v6rd_add_flag=1=0x1 (1bit)
+add_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x100, addr_ind 0xd0100 
+writing eram128: 0x0 0x90000000 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=4
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x4 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x90000000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =1 =0x1 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =1 =0x1 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=4
+=== echo 116 4 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x90000000
+0x00000000
+
+=== echo table_index=5 l2tp_add_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=30
+ table_index=5 l2tp_add_flag=1
+ 
+table_index=5=0x5 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+l2tp_add_flag=1=0x1 (1bit)
+add_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x140, addr_ind 0xd0100 
+writing eram128: 0x0 0x0 0x0 0x88000000 
+[se_smmu0_write] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=5
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x5 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x88000000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =1 =0x1 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =1 =0x1 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=5
+=== echo 116 5 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0140, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x88000000
+0x00000000
+
+=== echo table_index=6 vxlan_add_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=31
+ table_index=6 vxlan_add_flag=1
+ 
+table_index=6=0x6 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+vxlan_add_flag=1=0x1 (1bit)
+add_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x180, addr_ind 0xd0180 
+writing eram128: 0x0 0x84000000 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=6
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x6 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x84000000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =1 =0x1 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =1 =0x1 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=6
+=== echo 116 6 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x84000000
+0x00000000
+
+=== echo table_index=7 del_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=25
+ table_index=7 del_flag=1
+ 
+table_index=7=0x7 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+del_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x1c0, addr_ind 0xd0180 
+writing eram128: 0x0 0x0 0x0 0x800000 
+[se_smmu0_write] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=7
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x7 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x  800000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =1 =0x1 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=7
+=== echo 116 7 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd01c0, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00800000
+0x00000000
+
+=== echo table_index=8 pppoe_del_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=31
+ table_index=8 pppoe_del_flag=1
+ 
+table_index=8=0x8 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+pppoe_del_flag=1=0x1 (1bit)
+del_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x200, addr_ind 0xd0200 
+writing eram128: 0x0 0xc00000 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=8
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x8 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x  c00000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =1 =0x1 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =1 =0x1 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=8
+=== echo 116 8 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00c00000
+0x00000000
+
+=== echo table_index=9 ds_lite_del_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=33
+ table_index=9 ds_lite_del_flag=1
+ 
+table_index=9=0x9 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+ds_lite_del_flag=1=0x1 (1bit)
+del_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x240, addr_ind 0xd0200 
+writing eram128: 0x0 0x0 0x0 0xa00000 
+[se_smmu0_write] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=9
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x9 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x  a00000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =1 =0x1 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =1 =0x1 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=9
+=== echo 116 9 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0240, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00a00000
+0x00000000
+
+=== echo table_index=a v6rd_del_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=30
+ table_index=a v6rd_del_flag=1
+ 
+table_index=10=0xa (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+v6rd_del_flag=1=0x1 (1bit)
+del_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x280, addr_ind 0xd0280 
+writing eram128: 0x0 0x900000 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=10
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0xa used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x  900000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =1 =0x1 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =1 =0x1 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=10
+=== echo 116 10 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00900000
+0x00000000
+
+=== echo table_index=b l2tp_del_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=30
+ table_index=b l2tp_del_flag=1
+ 
+table_index=11=0xb (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+l2tp_del_flag=1=0x1 (1bit)
+del_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x2c0, addr_ind 0xd0280 
+writing eram128: 0x0 0x0 0x0 0x880000 
+[se_smmu0_write] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=11
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0xb used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x  880000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =1 =0x1 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =1 =0x1 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=11
+=== echo 116 11 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd02c0, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00880000
+0x00000000
+
+=== echo table_index=c vxlan_del_flag=1 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=31
+ table_index=c vxlan_del_flag=1
+ 
+table_index=12=0xc (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+vxlan_del_flag=1=0x1 (1bit)
+del_flag=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0xd0300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x300, addr_ind 0xd0300 
+writing eram128: 0x0 0x840000 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0300, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=12
+[se_smmu0_read] addr_ind : 0xd0300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0xc used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x  840000
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =1 =0x1 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =1 =0x1 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=12
+=== echo 116 12 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0300, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00840000
+0x00000000
+
+=== echo table_index=14 pppoe_session_id=1234 > acl_debug/acl_wan_link_table_set
+
+
+[np_user_table_test_acl_wan_link_table_set] input raw len=37
+ table_index=14 pppoe_session_id=1234
+ 
+table_index=20=0x14 (6bit)
+
+*** check ACL_WAN_LINK_TABLE_T :
+pppoe_session_id=4660=0x1234 (16bit)
+[se_smmu0_read] addr_ind : 0xd0500, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x500, addr_ind 0xd0500 
+writing eram128: 0x0 0x1234 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0500, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_wan_link_table_set] set sucess! table_index=20
+[se_smmu0_read] addr_ind : 0xd0500, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x14 used_cnt=1
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x    1234
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =4660 =0x1234 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+[np_user_table_test_acl_wan_link_table_set] success! table_index=20
+=== echo 116 20 2 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xd0500, table_word32_len : 4
+cmd_ind:0x48000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00001234
+0x00000000
+
+=== echo reserve_index=1 mac_h16=0a0b mac_l32=0c0d0e0f sipv4=c0a80101 > acl_debug/acl_source_table_set
+
+
+[np_user_table_test_acl_source_table_set] input raw len=61
+ reserve_index=1 mac_h16=0a0b mac_l32=0c0d0e0f sipv4=c0a80101
+ 
+
+*** check ACL_SOURCE_TABLE_T :
+mac_h16=2571=0xa0b (16bit)
+mac_l32=202182159=0xc0d0e0f (32bit)
+sipv4=3232235777=0xc0a80101 (32bit)
+reserve_index=1=0x1 (6bit)
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1400, bit_off 0x80, addr_ind 0xa0080 
+writing eram128: 0x0 0xc0a80101 0xc0d0e0f 0xa0b 
+[se_smmu0_write] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_source_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_source_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0xc0a80101
+   2 bit 64~ 95=0x c0d0e0f
+   3 bit 96~127=0x     a0b
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) sipv4 =3232235777 =0xc0a80101 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =202182159 =0xc0d0e0f (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =2571 =0xa0b (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =3232235777 =0xc0a80101 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =202182159 =0xc0d0e0f (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =2571 =0xa0b (32 bit)
+
+[np_user_table_test_acl_source_table_set] success! table_index=1
+=== echo reserve_index=1 mac_h16=1a1b mac_l32=1c1d1e1f dipv4=c0a80102 > acl_debug/acl_next_hop_table_set
+
+
+[np_user_table_test_acl_next_hop_table_set] input raw len=61
+ reserve_index=1 mac_h16=1a1b mac_l32=1c1d1e1f dipv4=c0a80102
+ 
+
+*** check ACL_NEXT_HOP_TABLE_T :
+dipv4=3232235778=0xc0a80102 (32bit)
+mac_l32=471670303=0x1c1d1e1f (32bit)
+mac_h16=6683=0x1a1b (16bit)
+reserve_index=1=0x1 (6bit)
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1600, bit_off 0x80, addr_ind 0xb0080 
+writing eram128: 0x0 0xc0a80102 0x1c1d1e1f 0x1a1b 
+[se_smmu0_write] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_next_hop_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_next_hop_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0xc0a80102
+   2 bit 64~ 95=0x1c1d1e1f
+   3 bit 96~127=0x    1a1b
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) dipv4 =3232235778 =0xc0a80102 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =471670303 =0x1c1d1e1f (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =6683 =0x1a1b (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =3232235778 =0xc0a80102 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =471670303 =0x1c1d1e1f (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =6683 =0x1a1b (32 bit)
+[np_user_table_test_acl_next_hop_table_set] success! table_index=1
+=== echo outer_vid_en=1 outer_vid=123 outer_tpid_en=1 outer_tpid=88a8 outer_pri_en=1 outer_pri=5 inner_vid_en=1 inner_vid=456 inner_tpid_en=1 inner_tpid=8100 inner_pri_en=1 inner_pri=3 inner_cfi_en=1 inner_cfi=1 > acl_debug/acl_vlan_table_set
+[se_smmu0_read] addr_ind : 0x484080, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484280, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4840c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4842c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484100, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484300, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+
+
+[np_user_table_test_acl_vlan_table_set] input raw len=203
+ outer_vid_en=1 outer_vid=123 outer_tpid_en=1 outer_tpid=88a8 outer_pri_en=1 outer_pri=5 inner_vid_en=1 inner_vid=456 inner_tpid_en=1 inner_tpid=8100 inner_pri_en=1 inner_pri=3 inner_cfi_en=1 inner_cfi=1
+ 
+
+*** check ACL_VLAN_TABLE_T :
+inner_vid=1110=0x456 (12bit)
+inner_cfi=1=0x1 (1bit)
+inner_pri=3=0x3 (3bit)
+inner_tpid=33024=0x8100 (16bit)
+outer_vid=291=0x123 (12bit)
+outer_pri=5=0x5 (3bit)
+outer_tpid=34984=0x88a8 (16bit)
+inner_vid_en=1=0x1 (1bit)
+inner_cfi_en=1=0x1 (1bit)
+inner_pri_en=1=0x1 (1bit)
+inner_tpid_en=1=0x1 (1bit)
+outer_vid_en=1=0x1 (1bit)
+outer_pri_en=1=0x1 (1bit)
+outer_tpid_en=1=0x1 (1bit)
+[se_smmu0_read] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1000, bit_off 0x0, addr_ind 0x80000 
+writing eram128: 0x81007456 0x88a8a123 0x0 0xa8b80000 
+[se_smmu0_write] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_vlan_table_set] set sucess! table_index=0
+[se_smmu0_read] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x0 used_cnt=1
+
+  acl_vlan_table_data:
+   0 bit  0~ 31=0x81007456
+   1 bit 32~ 63=0x88a8a123
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0xa8b80000
+  bit(  0~ 11), data[ 0] RSP[ 3] ( 0~11) inner_vid =1110 =0x456 (12 bit)
+  bit( 12~ 12), data[ 0] RSP[ 3] (12~12) inner_cfi =1 =0x1 (1 bit)
+  bit( 13~ 15), data[ 0] RSP[ 3] (13~15) inner_pri =3 =0x3 (3 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) inner_tpid =33024 =0x8100 (16 bit)
+  bit( 32~ 43), data[ 1] RSP[ 2] ( 0~11) outer_vid =291 =0x123 (12 bit)
+  bit( 44~ 44), data[ 1] RSP[ 2] (12~12) outer_cfi =0 =0x0 (1 bit)
+  bit( 45~ 47), data[ 1] RSP[ 2] (13~15) outer_pri =5 =0x5 (3 bit)
+  bit( 48~ 63), data[ 1] RSP[ 2] (16~31) outer_tpid =34984 =0x88a8 (16 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) rsv2 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) rsv1 =0 =0x0 (16 bit)
+  bit(112~114), data[ 3] RSP[ 0] (16~18) inner_rsv2 =0 =0x0 (3 bit)
+  bit(115~115), data[ 3] RSP[ 0] (19~19) inner_vid_en =1 =0x1 (1 bit)
+  bit(116~116), data[ 3] RSP[ 0] (20~20) inner_cfi_en =1 =0x1 (1 bit)
+  bit(117~117), data[ 3] RSP[ 0] (21~21) inner_pri_en =1 =0x1 (1 bit)
+  bit(118~118), data[ 3] RSP[ 0] (22~22) inner_rsv1 =0 =0x0 (1 bit)
+  bit(119~119), data[ 3] RSP[ 0] (23~23) inner_tpid_en =1 =0x1 (1 bit)
+  bit(120~122), data[ 3] RSP[ 0] (24~26) outer_rsv2 =0 =0x0 (3 bit)
+  bit(123~123), data[ 3] RSP[ 0] (27~27) outer_vid_en =1 =0x1 (1 bit)
+  bit(124~124), data[ 3] RSP[ 0] (28~28) outer_cfi_en =0 =0x0 (1 bit)
+  bit(125~125), data[ 3] RSP[ 0] (29~29) outer_pri_en =1 =0x1 (1 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) outer_rsv1 =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tpid_en =1 =0x1 (1 bit)
+[np_user_table_test_acl_vlan_table_set] success! table_index=0
+=== echo smac_l32=21222324 smac_h16=2526 dmac_l32=31323334 dmac_h16=3536 > acl_debug/acl_ipv6_mac_table_set
+
+
+[np_user_table_test_acl_ipv6_mac_table_set] input raw len=64
+ smac_l32=21222324 smac_h16=2526 dmac_l32=31323334 dmac_h16=3536
+ 
+
+*** check ACL_IPV6_MAC_TABLE_T :
+smac_l32=555885348=0x21222324 (32bit)
+smac_h16=9510=0x2526 (16bit)
+dmac_l32=825373492=0x31323334 (32bit)
+dmac_h16=13622=0x3536 (16bit)
+[se_smmu0_read] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1800, bit_off 0x0, addr_ind 0xc0000 
+writing eram128: 0x21222324 0x2526 0x31323334 0x3536 
+[se_smmu0_write] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_ipv6_mac_table_set] set sucess! table_index=0
+[se_smmu0_read] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x0 used_cnt=1
+
+  acl_ipv6_mac_table_data:
+   0 bit  0~ 31=0x21222324
+   1 bit 32~ 63=0x    2526
+   2 bit 64~ 95=0x31323334
+   3 bit 96~127=0x    3536
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) smac_l32 =555885348 =0x21222324 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 2] ( 0~15) smac_h16 =9510 =0x2526 (16 bit)
+  bit( 48~ 79), data[ 1] RSP[ 1] (16~15) dmac_l32 =825373492 =0x31323334 (32 bit)
+  bit( 80~ 95), data[ 2] RSP[ 1] (16~31) dmac_h16 =13622 =0x3536 (16 bit)
+
+[np_user_table_test_acl_ipv6_mac_table_set] success! table_index=0
+=== echo 112 0 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xa0000, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 112 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000a0b
+0x0c0d0e0f
+0xc0a80101
+0x00000000
+
+=== echo 112 2 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xa0100, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 112 3 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xa0180, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 113 0 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xb0000, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 113 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00001a1b
+0x1c1d1e1f
+0xc0a80102
+0x00000000
+
+=== echo 113 2 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xb0100, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 113 3 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xb0180, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 111 0 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0xa8b80000
+0x00000000
+0x88a8a123
+0x81007456
+
+=== echo 111 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0x80080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 111 2 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0x80100, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 111 3 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0x80180, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 114 0 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00003536
+0x31323334
+0x00002526
+0x21222324
+
+=== echo 114 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xc0080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 114 2 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xc0100, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 114 3 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xc0180, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 63 > acl_debug/acl_mac_encap_table_free
+[se_smmu0_read] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1b88, bit_off 0x1f80, addr_ind 0xde380 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3f used_cnt=0
+
+  acl_mac_encap_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) inner_tag =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) outer_tag =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) dmac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) dmac_h16 =0 =0x0 (16 bit)
+  bit(112~125), data[ 3] RSP[ 0] (16~29) rsv =0 =0x0 (14 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) inner_tag_en =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tag_en =0 =0x0 (1 bit)
+=== echo 62 > acl_debug/acl_mac_encap_table_free
+[se_smmu0_read] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1b88, bit_off 0x1f00, addr_ind 0xde300 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3e used_cnt=0
+
+  acl_mac_encap_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) inner_tag =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) outer_tag =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) dmac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) dmac_h16 =0 =0x0 (16 bit)
+  bit(112~125), data[ 3] RSP[ 0] (16~29) rsv =0 =0x0 (14 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) inner_tag_en =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tag_en =0 =0x0 (1 bit)
+=== echo 1 > acl_debug/acl_wan_link_udp_encap_table_free
+[se_smmu0_read] addr_ind : 0xd4000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a80, bit_off 0x20, addr_ind 0xd4000 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd4000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd4000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_wan_link_udp_encap_table_data:
+   0 bit  0~ 31=0x       0
+  bit(  0~ 15), data[ 0] RSP[ 0] ( 0~15) dport =0 =0x0 (16 bit)
+  bit( 16~ 31), data[ 0] RSP[ 0] (16~31) sport =0 =0x0 (16 bit)
+=== echo 1 > acl_debug/acl_l2tp_vxlan_encap_table_free
+[acl_l2tp_vxlan_encap_free_acl_l2tp_vxlan_encap_index] ERROR: index=1 used_cnt=0
+[se_smmu0_read] addr_ind : 0xd4480, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_l2tp_vxlan_encap_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) info3 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) info2 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) info1 =0 =0x0 (32 bit)
+  bit( 96~127), data[ 3] RSP[ 0] ( 0~31) info0 =0 =0x0 (32 bit)
+=== echo 1 > acl_debug/acl_wan_link_local_ipv6_table_free
+[se_smmu0_read] addr_ind : 0xd2080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a40, bit_off 0x80, addr_ind 0xd2080 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd2080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd2080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_wan_link_local_ipv6_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit( 96~127), data[ 3] RSP[ 0] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+=== echo 1 > acl_debug/acl_wan_link_remote_ipv6_table_free
+[se_smmu0_read] addr_ind : 0xd3080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a60, bit_off 0x80, addr_ind 0xd3080 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd3080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd3080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_wan_link_remote_ipv6_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit( 96~127), data[ 3] RSP[ 0] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+=== echo 1 > acl_debug/acl_wan_link_ip_encap_table_free
+[se_smmu0_read] addr_ind : 0xd1080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a20, bit_off 0x80, addr_ind 0xd1080 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd1080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd1080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_wan_link_ip_encap_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 15), data[ 0] RSP[ 3] ( 0~15) ipv4.identification =0 =0x0 (16 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) ipv4.init_checksum =0 =0x0 (16 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv4.sip =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) ipv4.dip =0 =0x0 (32 bit)
+  bit( 96~103), data[ 3] RSP[ 0] ( 0~ 7) ipv4.ipv4_protocol =0 =0x0 (8 bit)
+  bit(104~111), data[ 3] RSP[ 0] ( 8~15) ipv4.ttl =0 =0x0 (8 bit)
+  bit(112~119), data[ 3] RSP[ 0] (16~23) ipv4.tos =0 =0x0 (8 bit)
+  bit(120~123), data[ 3] RSP[ 0] (24~27) ipv4.header_len =0 =0x0 (4 bit)
+  bit(124~127), data[ 3] RSP[ 0] (28~31) ipv4.ip_ver =0 =0x0 (4 bit)
+=== echo 2 > acl_debug/acl_wan_link_ip_encap_table_free
+[se_smmu0_read] addr_ind : 0xd1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a20, bit_off 0x100, addr_ind 0xd1100 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd1100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=0
+
+  acl_wan_link_ip_encap_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 15), data[ 0] RSP[ 3] ( 0~15) ipv4.identification =0 =0x0 (16 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) ipv4.init_checksum =0 =0x0 (16 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) ipv4.sip =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) ipv4.dip =0 =0x0 (32 bit)
+  bit( 96~103), data[ 3] RSP[ 0] ( 0~ 7) ipv4.ipv4_protocol =0 =0x0 (8 bit)
+  bit(104~111), data[ 3] RSP[ 0] ( 8~15) ipv4.ttl =0 =0x0 (8 bit)
+  bit(112~119), data[ 3] RSP[ 0] (16~23) ipv4.tos =0 =0x0 (8 bit)
+  bit(120~123), data[ 3] RSP[ 0] (24~27) ipv4.header_len =0 =0x0 (4 bit)
+  bit(124~127), data[ 3] RSP[ 0] (28~31) ipv4.ip_ver =0 =0x0 (4 bit)
+=== echo 1 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x40, addr_ind 0xd0000 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 2 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x80, addr_ind 0xd0080 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 3 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0xc0, addr_ind 0xd0080 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 4 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x100, addr_ind 0xd0100 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x4 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 5 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0x484080, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484280, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4840c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4842c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484100, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484300, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x140, addr_ind 0xd0100 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x5 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 6 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x180, addr_ind 0xd0180 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x6 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 7 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x1c0, addr_ind 0xd0180 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x7 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 8 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x200, addr_ind 0xd0200 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x8 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 9 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x240, addr_ind 0xd0200 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0200, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x9 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 10 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x280, addr_ind 0xd0280 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0xa used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 11 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x2c0, addr_ind 0xd0280 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0280, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0xb used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 12 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x300, addr_ind 0xd0300 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0300, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0300, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0xc used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 20 > acl_debug/acl_wan_link_table_free
+[se_smmu0_read] addr_ind : 0xd0500, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1a00, bit_off 0x500, addr_ind 0xd0500 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xd0500, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xd0500, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x14 used_cnt=0
+
+  acl_wan_link_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 1] ( 0~31) rsv0 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 0] ( 0~15) pppoe_session_id =0 =0x0 (16 bit)
+  bit( 48~ 49), data[ 1] RSP[ 0] (16~17) rsv1 =0 =0x0 (2 bit)
+  bit( 50~ 50), data[ 1] RSP[ 0] (18~18) vxlan_del_flag =0 =0x0 (1 bit)
+  bit( 51~ 51), data[ 1] RSP[ 0] (19~19) l2tp_del_flag =0 =0x0 (1 bit)
+  bit( 52~ 52), data[ 1] RSP[ 0] (20~20) v6rd_del_flag =0 =0x0 (1 bit)
+  bit( 53~ 53), data[ 1] RSP[ 0] (21~21) ds_lite_del_flag =0 =0x0 (1 bit)
+  bit( 54~ 54), data[ 1] RSP[ 0] (22~22) pppoe_del_flag =0 =0x0 (1 bit)
+  bit( 55~ 55), data[ 1] RSP[ 0] (23~23) del_flag =0 =0x0 (1 bit)
+  bit( 56~ 57), data[ 1] RSP[ 0] (24~25) rsv2 =0 =0x0 (2 bit)
+  bit( 58~ 58), data[ 1] RSP[ 0] (26~26) vxlan_add_flag =0 =0x0 (1 bit)
+  bit( 59~ 59), data[ 1] RSP[ 0] (27~27) l2tp_add_flag =0 =0x0 (1 bit)
+  bit( 60~ 60), data[ 1] RSP[ 0] (28~28) v6rd_add_flag =0 =0x0 (1 bit)
+  bit( 61~ 61), data[ 1] RSP[ 0] (29~29) ds_lite_add_flag =0 =0x0 (1 bit)
+  bit( 62~ 62), data[ 1] RSP[ 0] (30~30) pppoe_add_flag =0 =0x0 (1 bit)
+  bit( 63~ 63), data[ 1] RSP[ 0] (31~31) add_flag =0 =0x0 (1 bit)
+=== echo 0 > acl_debug/acl_source_table_free
+[acl_source_free_acl_source_index] ERROR: index=0 used_cnt=0
+[se_smmu0_read] addr_ind : 0xa0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x0 used_cnt=0
+
+  acl_source_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) sipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+
+=== echo 1 > acl_debug/acl_source_table_free
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1400, bit_off 0x80, addr_ind 0xa0080 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_source_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) sipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+
+=== echo 2 > acl_debug/acl_source_table_free
+[acl_source_free_acl_source_index] ERROR: index=2 used_cnt=0
+[se_smmu0_read] addr_ind : 0xa0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=0
+
+  acl_source_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) sipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+
+=== echo 3 > acl_debug/acl_source_table_free
+[acl_source_free_acl_source_index] ERROR: index=3 used_cnt=0
+[se_smmu0_read] addr_ind : 0xa0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3 used_cnt=0
+
+  acl_source_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) sipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+
+=== echo 0 > acl_debug/acl_next_hop_table_free
+[acl_next_hop_free_acl_next_hop_index] ERROR: index=0 used_cnt=0
+[se_smmu0_read] addr_ind : 0xb0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x0 used_cnt=0
+
+  acl_next_hop_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) dipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+=== echo 1 > acl_debug/acl_next_hop_table_free
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1600, bit_off 0x80, addr_ind 0xb0080 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_next_hop_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) dipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+=== echo 2 > acl_debug/acl_next_hop_table_free
+[acl_next_hop_free_acl_next_hop_index] ERROR: index=2 used_cnt=0
+[se_smmu0_read] addr_ind : 0xb0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=0
+
+  acl_next_hop_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) dipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+=== echo 3 > acl_debug/acl_next_hop_table_free
+[acl_next_hop_free_acl_next_hop_index] ERROR: index=3 used_cnt=0
+[se_smmu0_read] addr_ind : 0xb0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3 used_cnt=0
+
+  acl_next_hop_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) dipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+=== echo 0 > acl_debug/acl_vlan_table_free
+[se_smmu0_read] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1000, bit_off 0x0, addr_ind 0x80000 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x0 used_cnt=0
+
+  acl_vlan_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 11), data[ 0] RSP[ 3] ( 0~11) inner_vid =0 =0x0 (12 bit)
+  bit( 12~ 12), data[ 0] RSP[ 3] (12~12) inner_cfi =0 =0x0 (1 bit)
+  bit( 13~ 15), data[ 0] RSP[ 3] (13~15) inner_pri =0 =0x0 (3 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) inner_tpid =0 =0x0 (16 bit)
+  bit( 32~ 43), data[ 1] RSP[ 2] ( 0~11) outer_vid =0 =0x0 (12 bit)
+  bit( 44~ 44), data[ 1] RSP[ 2] (12~12) outer_cfi =0 =0x0 (1 bit)
+  bit( 45~ 47), data[ 1] RSP[ 2] (13~15) outer_pri =0 =0x0 (3 bit)
+  bit( 48~ 63), data[ 1] RSP[ 2] (16~31) outer_tpid =0 =0x0 (16 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) rsv2 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) rsv1 =0 =0x0 (16 bit)
+  bit(112~114), data[ 3] RSP[ 0] (16~18) inner_rsv2 =0 =0x0 (3 bit)
+  bit(115~115), data[ 3] RSP[ 0] (19~19) inner_vid_en =0 =0x0 (1 bit)
+  bit(116~116), data[ 3] RSP[ 0] (20~20) inner_cfi_en =0 =0x0 (1 bit)
+  bit(117~117), data[ 3] RSP[ 0] (21~21) inner_pri_en =0 =0x0 (1 bit)
+  bit(118~118), data[ 3] RSP[ 0] (22~22) inner_rsv1 =0 =0x0 (1 bit)
+  bit(119~119), data[ 3] RSP[ 0] (23~23) inner_tpid_en =0 =0x0 (1 bit)
+  bit(120~122), data[ 3] RSP[ 0] (24~26) outer_rsv2 =0 =0x0 (3 bit)
+  bit(123~123), data[ 3] RSP[ 0] (27~27) outer_vid_en =0 =0x0 (1 bit)
+  bit(124~124), data[ 3] RSP[ 0] (28~28) outer_cfi_en =0 =0x0 (1 bit)
+  bit(125~125), data[ 3] RSP[ 0] (29~29) outer_pri_en =0 =0x0 (1 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) outer_rsv1 =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tpid_en =0 =0x0 (1 bit)
+=== echo 1 > acl_debug/acl_vlan_table_free
+[acl_vlan_free_acl_vlan_index] ERROR: index=1 used_cnt=0
+[se_smmu0_read] addr_ind : 0x80080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_vlan_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 11), data[ 0] RSP[ 3] ( 0~11) inner_vid =0 =0x0 (12 bit)
+  bit( 12~ 12), data[ 0] RSP[ 3] (12~12) inner_cfi =0 =0x0 (1 bit)
+  bit( 13~ 15), data[ 0] RSP[ 3] (13~15) inner_pri =0 =0x0 (3 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) inner_tpid =0 =0x0 (16 bit)
+  bit( 32~ 43), data[ 1] RSP[ 2] ( 0~11) outer_vid =0 =0x0 (12 bit)
+  bit( 44~ 44), data[ 1] RSP[ 2] (12~12) outer_cfi =0 =0x0 (1 bit)
+  bit( 45~ 47), data[ 1] RSP[ 2] (13~15) outer_pri =0 =0x0 (3 bit)
+  bit( 48~ 63), data[ 1] RSP[ 2] (16~31) outer_tpid =0 =0x0 (16 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) rsv2 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) rsv1 =0 =0x0 (16 bit)
+  bit(112~114), data[ 3] RSP[ 0] (16~18) inner_rsv2 =0 =0x0 (3 bit)
+  bit(115~115), data[ 3] RSP[ 0] (19~19) inner_vid_en =0 =0x0 (1 bit)
+  bit(116~116), data[ 3] RSP[ 0] (20~20) inner_cfi_en =0 =0x0 (1 bit)
+  bit(117~117), data[ 3] RSP[ 0] (21~21) inner_pri_en =0 =0x0 (1 bit)
+  bit(118~118), data[ 3] RSP[ 0] (22~22) inner_rsv1 =0 =0x0 (1 bit)
+  bit(119~119), data[ 3] RSP[ 0] (23~23) inner_tpid_en =0 =0x0 (1 bit)
+  bit(120~122), data[ 3] RSP[ 0] (24~26) outer_rsv2 =0 =0x0 (3 bit)
+  bit(123~123), data[ 3] RSP[ 0] (27~27) outer_vid_en =0 =0x0 (1 bit)
+  bit(124~124), data[ 3] RSP[ 0] (28~28) outer_cfi_en =0 =0x0 (1 bit)
+  bit(125~125), data[ 3] RSP[ 0] (29~29) outer_pri_en =0 =0x0 (1 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) outer_rsv1 =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tpid_en =0 =0x0 (1 bit)
+=== echo 2 > acl_debug/acl_vlan_table_free
+[se_smmu0_read] addr_ind : 0x484080, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484280, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4840c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x4842c0, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484100, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[se_smmu0_read] addr_ind : 0x484300, table_word32_len : 4
+cmd_ind:0x8000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 2
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+[acl_vlan_free_acl_vlan_index] ERROR: index=2 used_cnt=0
+[se_smmu0_read] addr_ind : 0x80100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=0
+
+  acl_vlan_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 11), data[ 0] RSP[ 3] ( 0~11) inner_vid =0 =0x0 (12 bit)
+  bit( 12~ 12), data[ 0] RSP[ 3] (12~12) inner_cfi =0 =0x0 (1 bit)
+  bit( 13~ 15), data[ 0] RSP[ 3] (13~15) inner_pri =0 =0x0 (3 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) inner_tpid =0 =0x0 (16 bit)
+  bit( 32~ 43), data[ 1] RSP[ 2] ( 0~11) outer_vid =0 =0x0 (12 bit)
+  bit( 44~ 44), data[ 1] RSP[ 2] (12~12) outer_cfi =0 =0x0 (1 bit)
+  bit( 45~ 47), data[ 1] RSP[ 2] (13~15) outer_pri =0 =0x0 (3 bit)
+  bit( 48~ 63), data[ 1] RSP[ 2] (16~31) outer_tpid =0 =0x0 (16 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) rsv2 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) rsv1 =0 =0x0 (16 bit)
+  bit(112~114), data[ 3] RSP[ 0] (16~18) inner_rsv2 =0 =0x0 (3 bit)
+  bit(115~115), data[ 3] RSP[ 0] (19~19) inner_vid_en =0 =0x0 (1 bit)
+  bit(116~116), data[ 3] RSP[ 0] (20~20) inner_cfi_en =0 =0x0 (1 bit)
+  bit(117~117), data[ 3] RSP[ 0] (21~21) inner_pri_en =0 =0x0 (1 bit)
+  bit(118~118), data[ 3] RSP[ 0] (22~22) inner_rsv1 =0 =0x0 (1 bit)
+  bit(119~119), data[ 3] RSP[ 0] (23~23) inner_tpid_en =0 =0x0 (1 bit)
+  bit(120~122), data[ 3] RSP[ 0] (24~26) outer_rsv2 =0 =0x0 (3 bit)
+  bit(123~123), data[ 3] RSP[ 0] (27~27) outer_vid_en =0 =0x0 (1 bit)
+  bit(124~124), data[ 3] RSP[ 0] (28~28) outer_cfi_en =0 =0x0 (1 bit)
+  bit(125~125), data[ 3] RSP[ 0] (29~29) outer_pri_en =0 =0x0 (1 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) outer_rsv1 =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tpid_en =0 =0x0 (1 bit)
+=== echo 3 > acl_debug/acl_vlan_table_free
+[acl_vlan_free_acl_vlan_index] ERROR: index=3 used_cnt=0
+[se_smmu0_read] addr_ind : 0x80180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3 used_cnt=0
+
+  acl_vlan_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 11), data[ 0] RSP[ 3] ( 0~11) inner_vid =0 =0x0 (12 bit)
+  bit( 12~ 12), data[ 0] RSP[ 3] (12~12) inner_cfi =0 =0x0 (1 bit)
+  bit( 13~ 15), data[ 0] RSP[ 3] (13~15) inner_pri =0 =0x0 (3 bit)
+  bit( 16~ 31), data[ 0] RSP[ 3] (16~31) inner_tpid =0 =0x0 (16 bit)
+  bit( 32~ 43), data[ 1] RSP[ 2] ( 0~11) outer_vid =0 =0x0 (12 bit)
+  bit( 44~ 44), data[ 1] RSP[ 2] (12~12) outer_cfi =0 =0x0 (1 bit)
+  bit( 45~ 47), data[ 1] RSP[ 2] (13~15) outer_pri =0 =0x0 (3 bit)
+  bit( 48~ 63), data[ 1] RSP[ 2] (16~31) outer_tpid =0 =0x0 (16 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) rsv2 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) rsv1 =0 =0x0 (16 bit)
+  bit(112~114), data[ 3] RSP[ 0] (16~18) inner_rsv2 =0 =0x0 (3 bit)
+  bit(115~115), data[ 3] RSP[ 0] (19~19) inner_vid_en =0 =0x0 (1 bit)
+  bit(116~116), data[ 3] RSP[ 0] (20~20) inner_cfi_en =0 =0x0 (1 bit)
+  bit(117~117), data[ 3] RSP[ 0] (21~21) inner_pri_en =0 =0x0 (1 bit)
+  bit(118~118), data[ 3] RSP[ 0] (22~22) inner_rsv1 =0 =0x0 (1 bit)
+  bit(119~119), data[ 3] RSP[ 0] (23~23) inner_tpid_en =0 =0x0 (1 bit)
+  bit(120~122), data[ 3] RSP[ 0] (24~26) outer_rsv2 =0 =0x0 (3 bit)
+  bit(123~123), data[ 3] RSP[ 0] (27~27) outer_vid_en =0 =0x0 (1 bit)
+  bit(124~124), data[ 3] RSP[ 0] (28~28) outer_cfi_en =0 =0x0 (1 bit)
+  bit(125~125), data[ 3] RSP[ 0] (29~29) outer_pri_en =0 =0x0 (1 bit)
+  bit(126~126), data[ 3] RSP[ 0] (30~30) outer_rsv1 =0 =0x0 (1 bit)
+  bit(127~127), data[ 3] RSP[ 0] (31~31) outer_tpid_en =0 =0x0 (1 bit)
+=== echo 0 > acl_debug/acl_ipv6_mac_table_free
+[se_smmu0_read] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1800, bit_off 0x0, addr_ind 0xc0000 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[se_smmu0_read] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x0 used_cnt=0
+
+  acl_ipv6_mac_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) smac_l32 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 2] ( 0~15) smac_h16 =0 =0x0 (16 bit)
+  bit( 48~ 79), data[ 1] RSP[ 1] (16~15) dmac_l32 =0 =0x0 (32 bit)
+  bit( 80~ 95), data[ 2] RSP[ 1] (16~31) dmac_h16 =0 =0x0 (16 bit)
+
+=== echo 1 > acl_debug/acl_ipv6_mac_table_free
+[acl_ipv6_mac_table_free_index] ERROR: index=1 used_cnt=0
+[se_smmu0_read] addr_ind : 0xc0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=0
+
+  acl_ipv6_mac_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) smac_l32 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 2] ( 0~15) smac_h16 =0 =0x0 (16 bit)
+  bit( 48~ 79), data[ 1] RSP[ 1] (16~15) dmac_l32 =0 =0x0 (32 bit)
+  bit( 80~ 95), data[ 2] RSP[ 1] (16~31) dmac_h16 =0 =0x0 (16 bit)
+
+=== echo 2 > acl_debug/acl_ipv6_mac_table_free
+[acl_ipv6_mac_table_free_index] ERROR: index=2 used_cnt=0
+[se_smmu0_read] addr_ind : 0xc0100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x2 used_cnt=0
+
+  acl_ipv6_mac_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) smac_l32 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 2] ( 0~15) smac_h16 =0 =0x0 (16 bit)
+  bit( 48~ 79), data[ 1] RSP[ 1] (16~15) dmac_l32 =0 =0x0 (32 bit)
+  bit( 80~ 95), data[ 2] RSP[ 1] (16~31) dmac_h16 =0 =0x0 (16 bit)
+
+=== echo 3 > acl_debug/acl_ipv6_mac_table_free
+[acl_ipv6_mac_table_free_index] ERROR: index=3 used_cnt=0
+[se_smmu0_read] addr_ind : 0xc0180, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x3 used_cnt=0
+
+  acl_ipv6_mac_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) smac_l32 =0 =0x0 (32 bit)
+  bit( 32~ 47), data[ 1] RSP[ 2] ( 0~15) smac_h16 =0 =0x0 (16 bit)
+  bit( 48~ 79), data[ 1] RSP[ 1] (16~15) dmac_l32 =0 =0x0 (32 bit)
+  bit( 80~ 95), data[ 2] RSP[ 1] (16~31) dmac_h16 =0 =0x0 (16 bit)
+
+=== echo 122 63 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xde380, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 122 62 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xde300, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 112 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 113 1 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 111 0 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0x80000, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+=== echo 114 0 4 > se_debug/cpu_get_eram_by_table_width
+[se_smmu0_read] addr_ind : 0xc0000, table_word32_len : 4
+cmd_ind:0x4c000000
+  cpu_ind_rw: 0, cpu_rd_mode: 1, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info_with_free] success
+eram_table(word32_len is 4):
+0x00000000
+0x00000000
+0x00000000
+0x00000000
+
+[exit 0]

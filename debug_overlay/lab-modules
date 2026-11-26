@@ -1,0 +1,77 @@
+#!/bin/sh
+# Lab UART image: load only the vendor drivers LAN1 needs. Run by lan1-up, or by hand.
+# Order follows stock /etc/rcS.d/S43BSPDriver and S99modules. Left out on purpose:
+# PON MAC/OMCI/OAM drivers and the pon/olt interfaces, optical.ko and the BOSA
+# calibration (bobtest writes laser parameters), DSP/voice modules, RTSP ALG, USB,
+# TUN, burn-in and the vendor watchdog scripts. idm0/idm1 are kept (see the end).
+# zx_ponreg_133 stays: switch.ko links against it (modinfo depends=).
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+KMOD=/kmodule
+failed=0
+
+load() {
+    if [ -d "/sys/module/$1" ]; then
+        echo "  $1: already loaded"
+    elif [ ! -f "$KMOD/$1.ko" ]; then
+        echo "  $1: $KMOD/$1.ko not found" >&2
+        failed=1
+    elif insmod "$KMOD/$1.ko"; then
+        echo "  $1: loaded"
+    else
+        echo "  $1: insmod failed; see dmesg" >&2
+        failed=1
+    fi
+}
+
+[ -d /sys/module ] || { echo "lab-modules: /sys is not mounted" >&2; exit 1; }
+
+load bspdriver
+
+# External 2.5G/10G PHY. S99modules reads /proc/pon/outer_phy; this board was
+# brought up with rlt8226b, which is the fallback (LAB_PHY=name overrides, LAB_PHY=none skips).
+phy=
+if [ -r /proc/pon/outer_phy ]; then
+    case $(sed -n 's/^xmac0: //p' /proc/pon/outer_phy) in
+        phy_RTL8226) phy=rlt8226b ;;
+        phy_YT8821) phy=yt8821_phy ;;
+        phy_aqr123c) phy=Mvxphy_aqr123c ;;
+        phy_3310) phy=Mvxphy ;;
+        phy_84881) phy=xphy ;;
+    esac
+fi
+phy=${LAB_PHY:-${phy:-rlt8226b}}
+[ "$phy" = none ] || load "$phy"
+
+load np_133
+load zx_ponreg_133
+load qos_mod
+load region_init
+load wan_bridge
+[ -f "$KMOD/peripheral.ko" ] && load peripheral
+load iprt
+load ffe
+load netdriver
+ifconfig sw up || failed=1
+load multicast
+load switch
+
+# NP -> CPU receive path (np_133 "idm net"). S99modules raises these next to the
+# DSP drivers, but without them the switch counts LAN frames and eth0 receives
+# nothing (verified on the board: ARP only resolved after this).
+for dev in idm0 idm1; do
+    ip link set dev "$dev" up || { echo "  $dev: cannot bring up" >&2; failed=1; }
+done
+
+# switch.ko polices traffic trapped to the CPU at 4000 pps, which caps LAN uploads
+# to the board at ~2 MB/s (measured: 60 MB/s raw TCP without it). Lab LAN only:
+# this also removes the CPU's protection against packet floods.
+trap_limit=/proc/pon/switch_debug/sw_set_trap_to_cpu_queues_rate_limit
+if [ "${LAB_CPU_RATELIMIT:-0}" = 0 ] && [ -w "$trap_limit" ]; then
+    echo enable=0 > "$trap_limit" && echo "  CPU trap rate limit: disabled"
+fi
+
+if [ "$failed" != 0 ]; then
+    echo "lab-modules: some steps failed" >&2
+    exit 1
+fi
+echo "lab-modules: done"

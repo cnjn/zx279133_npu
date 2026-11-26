@@ -1,0 +1,166 @@
+PORT ID[0]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[1]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[2]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[3]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[4]
+  sqmg ack cnt:                   206
+  ssch req cnt(ssch to sqmg):     206
+  ssch deq cnt(ssch to sopc):     206
+  ssch enq cnt(sqmg to ssch):     206
+PORT ID[5]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[6]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[7]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+[exit 0]
+PORT ID[0]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[1]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[2]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[3]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[4]
+  sqmg ack cnt:                   206
+  ssch req cnt(ssch to sqmg):     206
+  ssch deq cnt(ssch to sopc):     206
+  ssch enq cnt(sqmg to ssch):     206
+PORT ID[5]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[6]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[7]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+[exit 0]
+20 packets transmitted, 20 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.474/0.648/0.940/0.115 ms
+PORT ID[0]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[1]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[2]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[3]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[4]
+  sqmg ack cnt:                   226
+  ssch req cnt(ssch to sqmg):     226
+  ssch deq cnt(ssch to sopc):     226
+  ssch enq cnt(sqmg to ssch):     226
+PORT ID[5]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[6]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[7]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+[exit 0]
+PORT ID[0]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[1]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[2]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[3]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[4]
+  sqmg ack cnt:                   226
+  ssch req cnt(ssch to sqmg):     226
+  ssch deq cnt(ssch to sopc):     226
+  ssch enq cnt(sqmg to ssch):     226
+PORT ID[5]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[6]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+PORT ID[7]
+  sqmg ack cnt:                   0
+  ssch req cnt(ssch to sqmg):     0
+  ssch deq cnt(ssch to sopc):     0
+  ssch enq cnt(sqmg to ssch):     0
+[exit 0]

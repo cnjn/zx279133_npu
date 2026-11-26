@@ -1,0 +1,8 @@
+R orig saf=47 trap=47 out15=47
+R nop saf=48 trap=48 out15=48
+R orig2 saf=48 trap=48 out15=48
+inst3: 0x001780000000001f
+DONE
+[exit 0]
+300 packets transmitted, 300 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.413/0.676/1.005/0.097 ms

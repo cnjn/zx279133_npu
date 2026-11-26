@@ -1,0 +1,57 @@
+#!/bin/sh
+# Lab UART image: start Dropbear (SSH, scp, SFTP) bound to one LAN address.
+# Usage: lab-sshd [ADDRESS] [PORT]   (defaults 192.168.1.1 22)
+# Login: root. Password "root" works until /root/.ssh/authorized_keys exists;
+# from then on only those keys are accepted. Host keys live in tmpfs and are
+# regenerated after every reboot.
+PATH=/debug/bin:/sbin:/bin:/usr/sbin:/usr/bin
+addr=${1:-192.168.1.1}
+port=${2:-22}
+dir=/var/tmp/dropbear
+key=$dir/dropbear_ed25519_host_key
+pidfile=$dir/dropbear.pid
+log=$dir/dropbear.log
+
+if [ -s "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+    echo "lab-sshd: already running (pid $(cat "$pidfile")); kill it first to restart"
+    exit 0
+fi
+ip -4 addr show | grep -q "inet $addr/" ||
+    { echo "lab-sshd: no interface has $addr yet" >&2; exit 1; }
+
+# Dropbear needs Unix98 PTYs for interactive logins.
+grep -q ' /dev/pts devpts ' /proc/mounts ||
+    mount -t devpts -o gid=5,mode=620,ptmxmode=0666 devpts /dev/pts ||
+    { echo "lab-sshd: cannot mount devpts" >&2; exit 1; }
+
+umask 077
+mkdir -p "$dir" || exit 1
+if [ ! -s "$key" ]; then
+    echo "lab-sshd: generating host key (may wait for kernel entropy:" \
+        "$(cat /proc/sys/kernel/random/entropy_avail 2>/dev/null) bits)"
+    dropbearkey -t ed25519 -f "$key" >/dev/null || exit 1
+fi
+dropbearkey -y -f "$key" | grep -i fingerprint
+
+# Stock /root is 0775 and owned by uid 1000; Dropbear rejects keys under it.
+chown 0:0 /root && chmod 700 /root
+auth=
+if [ -s /root/.ssh/authorized_keys ]; then
+    chown -R 0:0 /root/.ssh && chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys
+    auth=-s
+    echo "lab-sshd: public keys only (/root/.ssh/authorized_keys)"
+else
+    echo "lab-sshd: password login enabled (lab password); add authorized_keys to disable"
+fi
+
+# -E keeps logging on stderr, which the daemon inherits into $log.
+dropbear -r "$key" -p "$addr:$port" -P "$pidfile" -E $auth 2>>"$log" ||
+    { echo "lab-sshd: dropbear failed; see $log" >&2; exit 1; }
+sleep 1
+if [ -s "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+    echo "lab-sshd: listening on $addr:$port (pid $(cat "$pidfile"), log $log)"
+else
+    echo "lab-sshd: dropbear exited; see $log" >&2
+    tail -5 "$log" >&2
+    exit 1
+fi

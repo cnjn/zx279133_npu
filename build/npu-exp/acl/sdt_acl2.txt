@@ -1,0 +1,78 @@
+=== echo 119 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1a60
+ rsv1             : 0
+ eram_table_depth : 0x20
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 120 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 1(32)
+ rsv2             : 0
+ eram_base_addr   : 0x1a80
+ rsv1             : 0
+ eram_table_depth : 0x8
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 121 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1a88
+ rsv1             : 0
+ eram_table_depth : 0x100
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 122 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1b88
+ rsv1             : 0
+ eram_table_depth : 0x100
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 164 > se_debug/sdt_get
+ table_type               : 3
+ hash_id                  : 1
+ hash_tbl_width           : 0
+ hash_key_size            : 0
+ hash_table_id            : 0
+ rsv2                     : 0
+ g988_en                  : 0
+ age_en                   : 1
+ rsv1                     : 0
+ rsp_mode                 : 3
+ multi_hash               : 1
+ as_en                    : 0
+ as_mode                  : 0
+ as_age_base_addr_index   : 0
+ clutch_en                : 0
+=== echo 165 > se_debug/sdt_get
+ table_type               : 3
+ hash_id                  : 1
+ hash_tbl_width           : 0
+ hash_key_size            : 0
+ hash_table_id            : 16
+ rsv2                     : 0
+ g988_en                  : 0
+ age_en                   : 1
+ rsv1                     : 0
+ rsp_mode                 : 2
+ multi_hash               : 1
+ as_en                    : 0
+ as_mode                  : 0
+ as_age_base_addr_index   : 0
+ clutch_en                : 0
+=== echo 49 > se_debug/sdt_get
+ table_type               : 4
+ stat_mode                : 3
+ rsv2                     : 0x0
+ stat_eram_addr           : 0x9089
+ stat_eram_depth          : 0xc18
+ rsv1                     : 0
+ rsv0                     : 0
+[exit 0]
+

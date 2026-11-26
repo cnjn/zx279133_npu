@@ -1,0 +1,51 @@
+=== base | 3 packets received
+--- mac sees:
+requests: 3
+replies: 3
+22:11:03.151973 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 29984, seq 0, length 64
+22:11:03.452888 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 29984, seq 1, length 64
+22:11:03.756361 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 29984, seq 2, length 64
+--- board sees:
+06:41:13.839877 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 29984, seq 0, length 64
+06:41:13.839995 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 29984, seq 0, length 64
+06:41:13.840017 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 29984, seq 0, length 64
+06:41:14.140798 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 29984, seq 1, length 64
+06:41:14.140873 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 29984, seq 1, length 64
+06:41:14.140884 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 29984, seq 1, length 64
+06:41:14.444236 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 29984, seq 2, length 64
+06:41:14.444265 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 29984, seq 2, length 64
+06:41:14.444272 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 29984, seq 2, length 64
+=== out5 | 3 packets received
+--- mac sees:
+requests: 3
+replies: 3
+22:11:08.540184 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 45600, seq 0, length 64
+22:11:08.843534 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 45600, seq 1, length 64
+22:11:09.147543 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 45600, seq 2, length 64
+--- board sees:
+06:41:19.228216 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 45600, seq 0, length 64
+06:41:19.228367 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 45600, seq 0, length 64
+06:41:19.228384 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 45600, seq 0, length 64
+06:41:19.531481 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 45600, seq 1, length 64
+06:41:19.531552 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 45600, seq 1, length 64
+06:41:19.531562 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 45600, seq 1, length 64
+06:41:19.835468 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 45600, seq 2, length 64
+06:41:19.835497 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 45600, seq 2, length 64
+06:41:19.835503 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 45600, seq 2, length 64
+=== out15 | 0 packets received
+--- mac sees:
+requests: 3
+replies: 0
+22:11:13.969746 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 61984, seq 0, length 64
+22:11:14.274890 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 61984, seq 1, length 64
+22:11:14.577010 00:e0:41:68:0d:86 > 00:d0:d0:61:62:01, ethertype IPv4 (0x0800), length 98: 192.168.1.2 > 192.168.1.1: ICMP echo request, id 61984, seq 2, length 64
+--- board sees:
+06:41:24.657799 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 61984, seq 0, length 64
+06:41:24.657950 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 61984, seq 0, length 64
+06:41:24.657965 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 61984, seq 0, length 64
+06:41:24.962896 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 61984, seq 1, length 64
+06:41:24.962968 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 61984, seq 1, length 64
+06:41:24.962976 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 61984, seq 1, length 64
+06:41:25.265015 eth0  In  IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 61984, seq 2, length 64
+06:41:25.265044 eth0  Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 61984, seq 2, length 64
+06:41:25.265051 sw    Out IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 61984, seq 2, length 64

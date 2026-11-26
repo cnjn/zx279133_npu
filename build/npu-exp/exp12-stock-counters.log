@@ -1,0 +1,144 @@
+port id 5 input unicast cnt:             73528
+port id 5 input multicast cnt:           3433
+port id 5 input boardcast cnt:           43
+port id 15 input unicast cnt:             15714
+omci dn cnt:                                      0
+omci up cnt:                                      0
+input boardcast ratelimit drop cnt:               0
+input multicast ratelimit drop cnt:               0
+input ratelimit drop cnt:                         0
+tag filter drop cnt:                              0
+ip limit drop cnt:                                0
+ip ratelimit drop cnt:                            0
+input vlan check drop cnt:                        0
+mac sa lookup fail cnt:                           77004
+mac sa mac full drop cnt:                         0
+mac unknown sa ratelimit drop cnt:                0
+mac sa ctrl drop cnt:                             0
+mac da lookup fail cnt:                           0
+mac unknown da ratelimit drop cnt:                0
+mac da ctrl drop cnt:                             0
+protocol action drop cnt:                         0
+protocol action trap cnt:                         77009
+protocol trap ratelimit drop cnt:                 0
+trap queue ratelimit drop cnt:                    328
+multicast flood disable drop cnt:                 0
+boardcast flood disable drop cnt:                 0
+dup copy fail drop cnt:                           0
+dup err drop cnt:                                 0
+mulicast ip table look up miss cnt:               0
+acl table look up miss cnt:                       0
+acl table ratelimit drop cnt:                     0
+acl table action drop cnt:                        0
+fast ip frag trap cnt:                            0
+fast table look up miss cnt:                      5
+fast table ratelimit drop cnt:                    0
+fast table action drop cnt:                       0
+fast table mtu action drop cnt:                   0
+mul src filter drop:                              0
+mul src filter unhit fwd:                         0
+mul src filter fwd:                               0
+acl table look up miss drop cnt:                  0
+fast table look up miss drop cnt:                 0
+output vlan check cnt:                            0
+lan to lan process pkt cnt:                       0
+port isolate drop cnt:                            0
+sfu table look miss cnt:                          0
+sfu table action drop cnt:                        0
+sfu table mtu drop cnt:                           0
+sfu table ratelimit drop cnt:                     0
+sfu process l3_en trap cnt:                       0
+up fttr protocol count;                           0
+dn fttr protocol count;                           0
+up mac gemport lookup hit:                        0
+RRR down drop cnt:                                  0
+RRR up drop cnt:                                    0
+up mac gemport lookup unhit:                      0
+dn mac gemport lookup hit:                        0
+dn mac gemport lookup unhit:                      0
+port id 5 output unicast cnt:            10156
+port id 5 output boardcast cnt:          5550
+port id 15 output unicast cnt:            65539
+port id 15 output multicast cnt:          3369
+port id 15 output boardcast cnt:          5936
+port id 36 output multicast cnt:          194
+port id 37 output multicast cnt:          196
+port id 56 output multicast cnt:          99
+port id 60 output multicast cnt:          97
+port id 61 output multicast cnt:          99
+port id 62 output multicast cnt:          97
+port id 63 output multicast cnt:          97
+=====
+port id 5 input unicast cnt:             73627
+port id 5 input multicast cnt:           3433
+port id 5 input boardcast cnt:           43
+port id 15 input unicast cnt:             15783
+omci dn cnt:                                      0
+omci up cnt:                                      0
+input boardcast ratelimit drop cnt:               0
+input multicast ratelimit drop cnt:               0
+input ratelimit drop cnt:                         0
+tag filter drop cnt:                              0
+ip limit drop cnt:                                0
+ip ratelimit drop cnt:                            0
+input vlan check drop cnt:                        0
+mac sa lookup fail cnt:                           77103
+mac sa mac full drop cnt:                         0
+mac unknown sa ratelimit drop cnt:                0
+mac sa ctrl drop cnt:                             0
+mac da lookup fail cnt:                           0
+mac unknown da ratelimit drop cnt:                0
+mac da ctrl drop cnt:                             0
+protocol action drop cnt:                         0
+protocol action trap cnt:                         77108
+protocol trap ratelimit drop cnt:                 0
+trap queue ratelimit drop cnt:                    328
+multicast flood disable drop cnt:                 0
+boardcast flood disable drop cnt:                 0
+dup copy fail drop cnt:                           0
+dup err drop cnt:                                 0
+mulicast ip table look up miss cnt:               0
+acl table look up miss cnt:                       0
+acl table ratelimit drop cnt:                     0
+acl table action drop cnt:                        0
+fast ip frag trap cnt:                            0
+fast table look up miss cnt:                      5
+fast table ratelimit drop cnt:                    0
+fast table action drop cnt:                       0
+fast table mtu action drop cnt:                   0
+mul src filter drop:                              0
+mul src filter unhit fwd:                         0
+mul src filter fwd:                               0
+acl table look up miss drop cnt:                  0
+fast table look up miss drop cnt:                 0
+output vlan check cnt:                            0
+lan to lan process pkt cnt:                       0
+port isolate drop cnt:                            0
+sfu table look miss cnt:                          0
+sfu table action drop cnt:                        0
+sfu table mtu drop cnt:                           0
+sfu table ratelimit drop cnt:                     0
+sfu process l3_en trap cnt:                       0
+up fttr protocol count;                           0
+dn fttr protocol count;                           0
+up mac gemport lookup hit:                        0
+RRR down drop cnt:                                  0
+RRR up drop cnt:                                    0
+up mac gemport lookup unhit:                      0
+dn mac gemport lookup hit:                        0
+dn mac gemport lookup unhit:                      0
+port id 5 output unicast cnt:            10225
+port id 5 output boardcast cnt:          5550
+port id 15 output unicast cnt:            65638
+port id 15 output multicast cnt:          3369
+port id 15 output boardcast cnt:          5936
+port id 36 output multicast cnt:          194
+port id 37 output multicast cnt:          196
+port id 56 output multicast cnt:          99
+port id 60 output multicast cnt:          97
+port id 61 output multicast cnt:          99
+port id 62 output multicast cnt:          97
+port id 63 output multicast cnt:          97
+[exit 0]
+70 packets transmitted, 70 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.492/0.693/1.001/0.090 ms

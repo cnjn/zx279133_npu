@@ -1,0 +1,31 @@
+# Firmware dumps and everything extracted from them hold device configuration, credentials
+# and identifiers, and the vendor's code: never commit them. Re-create with extract_flash.py.
+/flash_full.bin
+/extracted/
+/zte_zxslc_sr1010/
+
+# build/: only our tools and experiment records. Everything else there is either sensitive
+# (devcfg: device config backup), vendor binaries (vasdocker-re, osgi-re), or large
+# re-creatable toolchains, sources and images.
+/build/*
+!/build/npu-re/
+!/build/npu-exp/
+!/build/npu-dbg/
+!/build/lan1/
+
+# Vendor-derived artefacts: disassemblies, data dumps, microcode images (re-create with
+# `npu ko dis` / the scripts that wrote them).
+*.dis
+*.rodata
+*.bin
+*.ko
+*.i64
+
+# Local lab settings and run state
+/npu/config.toml
+/npu/state/
+
+# Caches and agent files
+__pycache__/
+*.pyc
+/.pi/

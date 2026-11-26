@@ -1,0 +1,16 @@
+spawn nc 192.168.1.1 23
+ÿýÿýÿý!ÿûÿûLogin: root
+root
+Password: root
+
+ln: /lib/libjli.so: Permission denied
+~ $dd if=/dev/mtd0 bs=128k conv=noerror,sync 2>/tmp/dd.err | nc 192.168.1.2 9000; echo DUMPDONE $?; tail -3 /tmp/dd.err
+dd if=/dev/mtd0 bs=128k conv=noerror,sync 2>/tmp/dd.err | nc 192.168.1.2 9000
+; echo DUMPDONE $exit
+?; tail -3 /tmp/dd.err
+exit
+DUMPDONE 0
+2048+0 records in
+2048+0 records out
+268435456 bytes (256.0MB) copied, 53.328286 seconds, 4.8MB/s
+~ $exit

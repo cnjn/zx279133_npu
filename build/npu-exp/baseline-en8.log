@@ -1,0 +1,79 @@
+capture /var/folders/ls/c1tl81mn3sv5w0krpw3v8zfm0000gn/T/tmp.KenA7w6YAw
+    sw:  505197    2817    0    5    0     0          0         0    36776     427    0    0    0     0       0          0
+  eth0:  465759    2817    0    0    0     0          0         0    35912     427    0    0    0     0       0          0
+[exit 0]
+    sw:  506637    2838    0    5    0     0          0         0    36956     430    0    0    0     0       0          0
+  eth0:  466905    2838    0    0    0     0          0         0    36038     430    0    0    0     0       0          0
+[exit 0]
+PING 192.168.1.1 (192.168.1.1): 56 data bytes
+64 bytes from 192.168.1.1: icmp_seq=0 ttl=64 time=0.853 ms
+64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.491 ms
+64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.469 ms
+64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.778 ms
+64 bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.781 ms
+64 bytes from 192.168.1.1: icmp_seq=5 ttl=64 time=0.484 ms
+64 bytes from 192.168.1.1: icmp_seq=6 ttl=64 time=0.712 ms
+64 bytes from 192.168.1.1: icmp_seq=7 ttl=64 time=0.653 ms
+64 bytes from 192.168.1.1: icmp_seq=8 ttl=64 time=0.497 ms
+64 bytes from 192.168.1.1: icmp_seq=9 ttl=64 time=0.636 ms
+64 bytes from 192.168.1.1: icmp_seq=10 ttl=64 time=0.739 ms
+64 bytes from 192.168.1.1: icmp_seq=11 ttl=64 time=0.751 ms
+64 bytes from 192.168.1.1: icmp_seq=12 ttl=64 time=0.683 ms
+64 bytes from 192.168.1.1: icmp_seq=13 ttl=64 time=0.802 ms
+64 bytes from 192.168.1.1: icmp_seq=14 ttl=64 time=0.614 ms
+64 bytes from 192.168.1.1: icmp_seq=15 ttl=64 time=0.715 ms
+64 bytes from 192.168.1.1: icmp_seq=16 ttl=64 time=0.493 ms
+64 bytes from 192.168.1.1: icmp_seq=17 ttl=64 time=0.510 ms
+64 bytes from 192.168.1.1: icmp_seq=18 ttl=64 time=0.495 ms
+64 bytes from 192.168.1.1: icmp_seq=19 ttl=64 time=0.612 ms
+
+--- 192.168.1.1 ping statistics ---
+20 packets transmitted, 20 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.469/0.638/0.853/0.123 ms
+    sw:  510907    2891    0    5    0     0          0         0    38916     450    0    0    0     0       0          0
+  eth0:  470433    2891    0    0    0     0          0         0    37998     450    0    0    0     0       0          0
+[exit 0]
+02:31:40.878175 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 0, length 64
+02:31:40.878574 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 0, length 64
+02:31:41.032162 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 1, length 64
+02:31:41.032382 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 1, length 64
+02:31:41.187286 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 2, length 64
+02:31:41.187474 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 2, length 64
+02:31:41.340281 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 3, length 64
+02:31:41.340535 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 3, length 64
+02:31:41.490722 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 4, length 64
+02:31:41.490973 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 4, length 64
+02:31:41.642576 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 5, length 64
+02:31:41.642795 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 5, length 64
+02:31:41.797751 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 6, length 64
+02:31:41.798046 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 6, length 64
+02:31:41.952212 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 7, length 64
+02:31:41.952480 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 7, length 64
+02:31:42.106742 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 8, length 64
+02:31:42.106960 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 8, length 64
+02:31:42.261913 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 9, length 64
+02:31:42.262177 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 9, length 64
+02:31:42.412693 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 10, length 64
+02:31:42.413007 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 10, length 64
+02:31:42.568082 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 11, length 64
+02:31:42.568412 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 11, length 64
+02:31:42.723203 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 12, length 64
+02:31:42.723499 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 12, length 64
+02:31:42.873520 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 13, length 64
+02:31:42.873826 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 13, length 64
+02:31:43.028069 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 14, length 64
+02:31:43.028326 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 14, length 64
+02:31:43.182567 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 15, length 64
+02:31:43.182860 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 15, length 64
+02:31:43.337584 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 16, length 64
+02:31:43.337803 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 16, length 64
+02:31:43.488661 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 17, length 64
+02:31:43.488885 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 17, length 64
+02:31:43.641081 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 18, length 64
+02:31:43.641328 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 18, length 64
+02:31:43.796537 IP 192.168.1.2 > 192.168.1.1: ICMP echo request, id 25418, seq 19, length 64
+02:31:43.796806 IP 192.168.1.1 > 192.168.1.2: ICMP echo reply, id 25418, seq 19, length 64
+tcpdump: listening on en8, link-type EN10MB (Ethernet), snapshot length 524288 bytes
+40 packets captured
+97 packets received by filter
+0 packets dropped by kernel

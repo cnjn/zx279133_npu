@@ -1,0 +1,93 @@
+=== echo 111 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1000
+ rsv1             : 0
+ eram_table_depth : 0x400
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 112 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1400
+ rsv1             : 0
+ eram_table_depth : 0x200
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 113 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1600
+ rsv1             : 0
+ eram_table_depth : 0x200
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 114 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1800
+ rsv1             : 0
+ eram_table_depth : 0x200
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 115 > se_debug/sdt_get
+=== echo 116 > se_debug/sdt_get
+can't get sdt
+ table_type       : 1
+ eram_mode        : 2(64)
+ rsv2             : 0
+ eram_base_addr   : 0x1a00
+ rsv1             : 0
+ eram_table_depth : 0x20
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 117 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1a20
+ rsv1             : 0
+ eram_table_depth : 0x20
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 118 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1a40
+ rsv1             : 0
+ eram_table_depth : 0x20
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 119 > se_debug/sdt_get
+ash: s: not found
+ont-shell:/sys/devices/platform/np # [TIMEOUT, raw tail]
+0
+ eram_table_depth : 0x20
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 117 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1a20
+ rsv1             : 0
+ eram_table_depth : 0x20
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 118 > se_debug/sdt_get
+ table_type       : 1
+ eram_mode        : 3(128)
+ rsv2             : 0
+ eram_base_addr   : 0x1a40
+ rsv1             : 0
+ eram_table_depth : 0x20
+ rsv0             : 0
+ clutch_en        : 0
+=== echo 119 > se_debug/sdt_get
+ash: s: not found
+ont-shell:/sys/devices/platform/np # 

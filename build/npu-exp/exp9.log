@@ -1,0 +1,20 @@
+9c6bf58dc2e41b5c
+write /tmp/exp9-ctrl.bin file
+version: 0x0001.0x0108.0x0491570c
+inst0: 0x0408000018d8061b inst1: 0x001000000000000f inst2: 0x0500002e00000525 inst3: 0x02906a760003c001 inst0: 0x02906a7600036021 inst1: 0x02000000005001ef inst2: 0x010806ad86af8520 inst3: 0x02000000004001ef 
+R /tmp/exp9-ctrl.bin 48 0
+c45f5c56d5bbb9a1
+write /tmp/exp9-test.bin file
+version: 0x0001.0x0108.0x0491570c
+inst0: 0x0408000018d8061b inst1: 0x001000000000000f inst2: 0x0500002e00000525 inst3: 0x02906a2e0003c1c5 inst0: 0x02906a7600036021 inst1: 0x02000000005001ef inst2: 0x010806ad86af8520 inst3: 0x02000000004001ef 
+R /tmp/exp9-test.bin 0 47
+d9069f9d6224b84a
+write /etc/mcode/mcode_133.bin file
+version: 0x0001.0x0108.0x0491570c
+inst0: 0x0408000018d8061b inst1: 0x001000000000000f inst2: 0x0500002e00000525 inst3: 0x02906a760003a001 inst0: 0x02906a7600036021 inst1: 0x02000000005001ef inst2: 0x010806ad86af0520 inst3: 0x02000000004001ef 
+R /etc/mcode/mcode_133.bin 47 0
+DONE
+[exit 0]
+--- 192.168.1.1 ping statistics ---
+600 packets transmitted, 600 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.240/0.679/0.977/0.096 ms

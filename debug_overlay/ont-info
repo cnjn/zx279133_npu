@@ -1,0 +1,83 @@
+#!/bin/sh
+# Manual, read-only diagnostics. Run locally; outputs stay on stdout.
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+export PATH
+
+bb() { /bin/busybox "$@"; }
+
+usage() {
+    printf '%s\n' "Usage: $0 [summary|npu|crypto|net|kconfig]" \
+        '  summary  Kernel, memory, uptime and A/B partition names' \
+        '  npu      np_133 module, microcode file hash and matching kernel log lines' \
+        '  crypto   Selected kernel crypto registrations and TUN availability' \
+        '  net      Interface counters, without addresses' \
+        '  kconfig  Selected kernel config options (requires /proc/config.gz)'
+}
+
+show() {
+    printf '\n--- %s ---\n' "$1"
+    if [ -r "$1" ]; then
+        bb cat "$1"
+    else
+        printf '%s\n' '(not readable)'
+    fi
+}
+
+case "${1-summary}" in
+    summary)
+        bb uname -a
+        show /proc/uptime
+        printf '\n--- memory ---\n'
+        bb grep -E '^(MemTotal|MemFree|MemAvailable|Slab):' /proc/meminfo
+        show /proc/mtd
+        ;;
+    npu)
+        printf '%s\n' '--- np_133 module ---'
+        bb grep '^np_133 ' /proc/modules || printf '%s\n' '(not listed or unreadable)'
+        mcode=/etc/mcode/mcode_133.bin
+        printf '\n--- %s ---\n' "$mcode"
+        if [ -r "$mcode" ]; then
+            bb sha256sum "$mcode"
+        else
+            printf '%s\n' '(not readable; absence after boot does not prove a load failure)'
+        fi
+        printf '\n--- matching kernel messages ---\n'
+        if log=$(bb dmesg); then
+            printf '%s\n' "$log" | bb grep -iE 'np_133|mcode|(^|[^a-z])(npu|ppu)([^a-z]|$)' | bb tail -n 60
+        else
+            printf '%s\n' '(kernel log unavailable)'
+        fi
+        ;;
+    crypto)
+        printf '%s\n' '--- selected /proc/crypto fields ---'
+        if [ -r /proc/crypto ]; then
+            bb awk 'BEGIN { RS=""; FS="\n" }
+                tolower($0) ~ /chacha|poly1305|aes|sm4|gcm/ {
+                    for (i=1; i<=NF; i++)
+                        if ($i ~ /^(name|driver|module|priority|type)[[:space:]]*:/) print $i
+                    print ""
+                }' /proc/crypto
+        else
+            printf '%s\n' '(not readable)'
+        fi
+        if [ -c /dev/net/tun ]; then
+            printf '%s\n' '/dev/net/tun exists'
+        else
+            printf '%s\n' '/dev/net/tun not present'
+        fi
+        ;;
+    net) show /proc/net/dev ;;
+    kconfig)
+        if [ ! -r /proc/config.gz ]; then
+            printf '%s\n' '/proc/config.gz is not readable' >&2
+            exit 1
+        fi
+        if config=$(bb zcat /proc/config.gz); then
+            printf '%s\n' "$config" | bb grep -E '^(# )?CONFIG_(COMPAT|DEBUG_FS|FTRACE|IKCONFIG(_PROC)?|TUN|WIREGUARD|CRYPTO_(AES|SM4|CHACHA[[:alnum:]_]*|POLY1305[[:alnum:]_]*))([= ]|$)'
+        else
+            exit 1
+        fi
+        ;;
+    -h|--help) usage ;;
+    *) usage >&2; exit 2 ;;
+esac

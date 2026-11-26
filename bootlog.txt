@@ -1,0 +1,223 @@
+NAND
+start read bootloader
+non secure boot
+Jump
+
+enter bootloader...
+pll init, cpu freq=1000 MHz
+
+crpm init ok
+DDR4 1600 Mbps
+DDR4 size, 0x20000000=512MiB
+
+ddr init ok
+
+
+U-Boot 2021.01 (Sep 06 2024 - 11:38:05 +0800), Build: jenkins-zxic_build_all_burn_branch_gitlab_new-70
+
+CPU  : ZX279133@A53x2,1000MHZ
+Model: ZTE 133
+DRAM:  512 MiB
+Relocation Offset is: 17f41000
+clk_register: failed to get sd_wclk_mux device (parent of sd_wclk_div), idx = 0
+clk_register: failed to get nand_xclk device (parent of nand_wclk), idx = 1
+clk_register: failed to get clk1376m_div device (parent of pon_core_clk_mux), idx = 2
+clk_register: failed to get clk40m device (parent of pcie_25m_mux), idx = 3
+clk_register: failed to get pon_tm_aclk device (parent of tzc400_pon_aclk), idx = 4
+Disable watchdog.
+el=3
+NAND:  denali-nand-dt nand@01000000: clk_rate = 25000000 xrate = 100000000.
+nand_base: Full ID: 1590da98, the fifth id is 0xf6
+nand_base: device found, Manufacturer ID: 0x98, Chip ID: 0xda
+nand_base: Toshiba TC58BVG1S3HTA00 256MiB 3.3V 8-bit
+nand_base: 256 MiB, SLC, erase size: 128 KiB, page size: 2048, OOB size: 64
+denali->dma_avail = 0x1
+denali-nand-dt nand@01000000: chosen ECC settings: step=512, strength=4, bytes=8
+Creating 15 MTD partitions on "nand0":
+Scanning device for bad blocks
+Bad eraseblock 1027 at 0x000008060000
+Bad eraseblock 1536 at 0x00000c000000
+Bad eraseblock 1537 at 0x00000c020000
+256 MiB
+Loading Environment from NAND... OK
+In:    serial
+Out:   serial
+Err:   serial
+clk_pll env is not setted, core clk won't change
+read partition others
+Size not on a page boundary (0x800), rounding to 0x800
+Reading 2048 byte(s) (1 page(s)) at offset 0x00400000
+[INFO] ZXIC SOFT VID: 0x00180491
+get board_info_id by fdt,the phy_id is 0x180491
+Net:   rx data disable
+The initial value of mdio_8226_id is 1.
+The initial value of mdio_gpy211_id is 1.
+innerGeLedPolarSet 1
+innerGeLedPolarSet 1
+innerGeLedPolarSet 1
+innerGeLedPolarSet 1
+mdio_miiphy_initialize ok
+enter gpon pon pll cfg
+mode_xgpon_nsyn_cfg_133
+com_pll_lock_ready
+rx los =0 rx data in
+cdr_lock_ready
+pon serdes init succeed
+[get_dts_bosa_and_switch_ponmode_info] bosa_and_switch_ponmode_info=0x5210050.
+[zx_pon_mode_init] switch_ponmode=0x50,multi_bosa_en=0x0,bosa_type=0x2.
+read partition others
+Reading 4096 byte(s) (2 page(s)) at offset 0x00000000
+[zx_get_private_profile_uint] pKeyName=UpModeInfo value=64 tmp=0x00000040
+[up_mode_get] UpModeInfo=0x40 ponmode_auto_en=0 upmode=0x40 lan_up_port=0 wlan_up_port=0
+[up_mode_check_verify] upmode=0x40 ponmode_auto_en=0 lan_up_port=0 wlan_up_port=0
+read partition others
+Reading 4096 byte(s) (2 page(s)) at offset 0x00000000
+[zx_get_private_profile_uint] pKeyName=UpModeInfo value=64 tmp=0x00000040
+[modify_bootargs_UpModeInfo] UpModeInfo_str=UpModeInfo=0x00000040
+eth0
+Hit any key to stop autoboot:  0
+read partition others
+Reading 4096 byte(s) (2 page(s)) at offset 0x00000000
+val =0xffffffff, reg = 0x192c0004
+reset val =0xfffffffe
+restore val = 0xffffffff
+read SOPC_CLR_OVER_READY_SMAC = 0x1, mac = 0x0
+write SOPC_SEND_EN_CFG_SMAC,mac = 0x0
+val =0xffffffff, reg = 0x192c0004
+reset val =0xfffffffd
+restore val = 0xffffffff
+read SOPC_CLR_OVER_READY_SMAC = 0x1, mac = 0x1
+write SOPC_SEND_EN_CFG_SMAC,mac = 0x1
+val =0xffffffff, reg = 0x192c0004
+reset val =0xfffffffb
+restore val = 0xffffffff
+read SOPC_CLR_OVER_READY_SMAC = 0x1, mac = 0x2
+write SOPC_SEND_EN_CFG_SMAC,mac = 0x2
+val =0xffffffff, reg = 0x192c0004
+reset val =0xfffffff7
+restore val = 0xffffffff
+read SOPC_CLR_OVER_READY_SMAC = 0x1, mac = 0x3
+write SOPC_SEND_EN_CFG_SMAC,mac = 0x3
+get board_info_id by fdt,the phy_id is 0x180491
+[outerphy_phy_init]Warning: No outerphy on this port<6>
+get board_info_id by fdt,the phy_id is 0x180491
+[outerphy_phy_init]Warning: No outerphy on this port<4>
+get board_info_id by fdt,the phy_id is 0x180491
+[outerphy_phy_init]Warning: No outerphy on this port<5>
+idm_ddr_base is 0x00000000b0000000
+enter gpon pon pll cfg
+mode_xgpon_nsyn_cfg_133
+com_pll_lock_ready
+rx los =0 rx data in
+cdr_lock_ready
+pon serdes init succeed
+np init ok
+mac 0 link down
+mac 1 link down
+mac 2 link down
+mac 3 link down
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+multi upgrade check timeout.
+Receive multicast packet failed (>.<)
+read partition others
+Reading 4096 byte(s) (2 page(s)) at offset 0x00000000
+BootImageNum=0x00000000,0
+name is kernel0,offset is 0x200000
+read partition kernel0
+Size not on a page boundary (0x800), rounding to 0x1928800
+Reading 26380288 byte(s) (12881 page(s)) at offset 0x00000000
+find kernel0 flash entry is 0x200000
+read partition boot
+Reading 1572864 byte(s) (768 page(s)) at offset 0x00000000
+set bootargs,str is console=ttyAMA0,115200n8 rdinit=/sbin/init U-Boot V32.AA1.04 20240906120040 0x200000 0x0 0x82 0x82  UpModeInfo=0x00000040
+Saving Environment to NAND... Erasing NAND...
+Erasing at 0x1e0000 -- 100% complete.
+Writing to NAND... OK
+OK
+## Loading kernel from FIT Image at 88000000 ...
+   Using 'conf@00180491' configuration
+   Trying 'kernel@133' kernel subimage
+     Description:  Linux kernel for 133
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x880000f4
+     Data Size:    4717381 Bytes = 4.5 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x80080000
+     Entry Point:  0x80080000
+   Verifying Hash Integrity ... OK
+## Loading ramdisk from FIT Image at 88000000 ...
+   Using 'conf@00180491' configuration
+   Trying 'initramfs@133' ramdisk subimage
+     Description:  initramfs for 133
+     Type:         RAMDisk Image
+     Compression:  lzma compressed
+     Data Start:   0x8862cd18
+     Data Size:    19895954 Bytes = 19 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x00000000
+     Entry Point:  0x00000000
+   Verifying Hash Integrity ... OK
+WARNING: 'compression' nodes for ramdisks are deprecated, please fix your .its file!
+## Loading fdt from FIT Image at 88000000 ...
+   Using 'conf@00180491' configuration
+   Trying 'fdt@00180491' fdt subimage
+     Description:  Flattened Device Tree blob for 133
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x88550ce4
+     Data Size:    44958 Bytes = 43.9 KiB
+     Architecture: AArch64
+     Load Address: 0x82000000
+   Verifying Hash Integrity ... OK
+   Loading fdt from 0x88550ce4 to 0x82000000
+   Booting using the fdt blob at 0x82000000
+   Uncompressing Kernel Image
+   Loading Ramdisk to 9dd02000, end 9effb692 ... OK
+   Loading Device Tree to 000000009f625000, end 000000009f632f9d ... OK
+ft_board_setup
+ft_fixup_flash nand0
+ft_fixup_flash nand
+
+Starting kernel ...
+
+CPU0: Set slave cpu addr = 0x00211A8C
+SLAVECPU: Cpu = 00000001 online successfully in psci!
+init psci ok!!
+CPU ON: Target cpu = 00000001 entry = 0x807031E0
+CPU1: Jump to linux kernel entry = 0x807031E0
+clk_common: pll_lsp_2000m_clk:failed to find property zx-clock,pll-en-bit
+clk_common: pll_1376m_clk:failed to find property zx-clock,pll-en-bit
+clk_common: pll_fpp_2500m_clk:failed to find property zx-clock,pll-en-bit
+zxic-pinctrl 10e20000.pinctrl: invalid pin list in gpio-range node
+zxic-pinctrl 10e20000.pinctrl: invalid pin list in bank-range node
+interval tree insert/remove
+interval tree search
+zx_mdio 14f01000.mdio: Cannot found phy-power property in mdio
+zte,zx27913x-pcie 15200000.pcie: Phy link never came up
+zte,zx27913x-pcie 15202000.pcie: Phy link never came up
+zx_board soc:bdinfo@0: Property 'pots_info' cannot be read, ret: -22.
+zx_board soc:bdinfo@0: Property 'user_outerphy_desc' cannot be read, ret: 0.
+detail_process_init start
+
+ZX279133 lab shell: vendor startup and network services are disabled.
+ont-shell:~ #

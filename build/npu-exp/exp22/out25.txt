@@ -1,0 +1,35 @@
+movi_field 3
+movi_keep_lo 3
+movi_keep_hi 3
+mov_field 3
+mov_keep 3
+addi_wrap 3
+addi_nocarry 3
+subi_wrap 3
+subi_noborrow 3
+addi_2reg 3
+shli 3
+shri 3
+bcmpr_eq 3
+bcmpr_gt 3
+bcmpr_gt_neg 0
+csum 3
+restored
+inst0: 0x054800f000000523
+inst1: 0x0018000601000003
+inst2: 0x02906a7600066421
+inst3: 0x02986a2e000670e5
+inst0: 0x0507402e00008525
+inst1: 0x0000000000000000
+inst2: 0x020740e8000201ef
+inst3: 0x01076e0022000524
+inst0: 0x050780780000852d
+inst1: 0x0107780002000520
+inst2: 0x020780f0000101ef
+inst3: 0x054800e800000523
+inst0: 0x054840f000000523
+inst1: 0x0148800000000523
+inst2: 0x00180005c1000003
+inst3: 0x0018000000000000
+[exit 0]
+3 packets received

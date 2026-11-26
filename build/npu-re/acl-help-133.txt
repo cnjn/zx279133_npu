@@ -1,0 +1,534 @@
+=== acl_hgu_table_set
+
+*** acl_hgu_table ***
+echo [k_xxx=hex_val:hex_mask] [k_yyy=hex_val:hex_mask] ... [r_zzz=hex_val] ... > acl_hgu_table_set 
+    more info:  echo help > acl_hgu_table_set 
+    echo k_sip=c0a80102:ffffffff k_dip=c0a80105:ffffffff k_ipv4_flag=1:1 k_ip_protocol=11:ff k_l4_sport=400:ffff k_l4_dport=401:ffff r_out_port=4 r_out_que=0 > acl_hgu_table_set
+cat acl_hgu_table_show -- show all valid acl_hgu_table info
+cat cnt > acl_hgu_table_show -- show acl_hgu_table cnt
+echo multi_info=hex_val mode_info=hex_val > acl_hgu_table_del
+    multi_info  mode_info  print at acl_hgu_table_set (only del generate by acl_hgu_table_set)
+
+*** ACL_HGU_TABLE_KEY_T: ***
+k_sip xxx:ffffffff  (32bit)
+k_dip xxx:ffffffff  (32bit)
+k_l4_dport xxx:ffff  (16bit)
+k_l4_sport xxx:ffff  (16bit)
+k_ip_protocol xxx:ff  (8bit)
+k_dscp_tc xxx:ff  (8bit)
+k_outer_vid xxx:fff  (12bit)
+k_outer_cfi xxx:1  (1bit)
+k_outer_pri xxx:7  (3bit)
+k_inner_vid xxx:fff  (12bit)
+k_inner_cfi xxx:1  (1bit)
+k_inner_pri xxx:7  (3bit)
+k_tag_level xxx:7  (3bit)
+k_pppoe_flag xxx:1  (1bit)
+k_inner_udp_flag xxx:1  (1bit)
+k_inner_ip_flag xxx:1  (1bit)
+k_ipv6_flag xxx:1  (1bit)
+k_ipv4_flag xxx:1  (1bit)
+k_flag_rsv xxx:3  (2bit)
+k_in_port xxx:3f  (6bit)
+k_sa_l32 xxx:ffffffff  (32bit)
+k_sa_h16 xxx:ffff  (16bit)
+k_da_l16 xxx:ffff  (16bit)
+k_da_h32 xxx:ffffffff  (32bit)
+
+*** ACL_HGU_TABLE_RESULT_T: ***
+r_rsv_hard_age_index (18bit)
+r_rsv_hard_table_info (8bit)
+r_rsv4 (6bit)
+r_pkt_len_change_val (7bit)
+r_rsv3 (25bit)
+r_gem_port (16bit)
+r_out_port_is_wifi_flag (1bit)
+r_out_port (6bit)
+r_out_que (9bit)
+r_rsv2 (2bit)
+r_mtu_val (12bit)
+r_ratelimit_bucket_id (6bit)
+r_stat_flow_id (12bit)
+r_rsv1 (1bit)
+r_stat_wan_id (5bit)
+r_dscp_tc (8bit)
+r_acl_next_hop_table_index (9bit)
+r_acl_source_table_index (9bit)
+r_l4_dport (16bit)
+r_l4_sport (16bit)
+r_rsv0 (4bit)
+r_cla_vlan_table_index (10bit)
+r_vlan_action (4bit)
+r_cla_encap_index (8bit)
+r_wan_link_id (6bit)
+r_flag_rsv (10bit)
+r_encap_decap_flag (1bit)
+r_mtu_en (1bit)
+r_dmac_change_en (1bit)
+r_dip_change_en (1bit)
+r_smac_change_en (1bit)
+r_sip_change_en (1bit)
+r_l4_dport_change_en (1bit)
+r_l4_sport_change_en (1bit)
+r_pkt_len_is_del_flag (1bit)
+r_pkt_len_change_en (1bit)
+r_dscp_tc_modify_en (1bit)
+r_stat_wan_id_en (1bit)
+r_stat_flow_id_after_modify_en (1bit)
+r_stat_flow_id_en (1bit)
+r_ratelimit_en (1bit)
+r_drop_en (1bit)
+r_pri (5bit)
+r_hash_hit (1bit)
+
+*** ACL_VLAN_TABLE_T: ext_flag=1 ***
+vl_inner_vid 12bit
+vl_inner_cfi 1bit
+vl_inner_pri 3bit
+vl_inner_tpid 16bit
+vl_outer_vid 12bit
+vl_outer_cfi 1bit
+vl_outer_pri 3bit
+vl_outer_tpid 16bit
+vl_rsv2 32bit
+vl_rsv1 16bit
+vl_inner_rsv2 3bit
+vl_inner_vid_en 1bit
+vl_inner_cfi_en 1bit
+vl_inner_pri_en 1bit
+vl_inner_rsv1 1bit
+vl_inner_tpid_en 1bit
+vl_outer_rsv2 3bit
+vl_outer_vid_en 1bit
+vl_outer_cfi_en 1bit
+vl_outer_pri_en 1bit
+vl_outer_rsv1 1bit
+vl_outer_tpid_en 1bit
+
+*** ACL_SOURCE_TABLE_T: ext_flag=1 ***
+s_v4_rsv1 32bit
+s_v4_sipv4 32bit
+s_v4_mac_l32 32bit
+s_v4_mac_h16 16bit
+s_v4_rsv0 16bit
+s_v4_reserve_index 6bit
+s_v6_ipv6_addr0 32bit
+s_v6_ipv6_addr1 32bit
+s_v6_ipv6_addr2 32bit
+s_v6_ipv6_addr3 32bit
+
+*** ACL_NEXT_HOP_TABLE_T: ext_flag=1 ***
+n_h4_rsv1 32bit
+n_h4_dipv4 32bit
+n_h4_mac_l32 32bit
+n_h4_mac_h16 16bit
+n_h4_rsv0 16bit
+n_h4_reserve_index 6bit
+n_h6_ipv6_addr3 32bit
+n_h6_ipv6_addr2 32bit
+n_h6_ipv6_addr1 32bit
+n_h6_ipv6_addr0 32bit
+    r_dmac_change_en=1 n_h_mac_h16=1023 n_h_mac_l32=abcd1234
+    r_dip_change_en=1 n_h_dipv4=c0a80102
+
+*** ACL_IPV6_MAC_TABLE_T: ext_flag=1 ***
+s_v6_smac_l32 32bit
+s_v6_smac_h16 16bit
+s_v6_dmac_l32 32bit
+s_v6_dmac_h16 16bit
+
+*** ACL_WAN_LINK_TABLE_T: ext_flag=1 ***
+wl_rsv0 32bit
+wl_pppoe_session_id 16bit
+wl_rsv1 2bit
+wl_vxlan_del_flag 1bit
+wl_l2tp_del_flag 1bit
+wl_v6rd_del_flag 1bit
+wl_ds_lite_del_flag 1bit
+wl_pppoe_del_flag 1bit
+wl_del_flag 1bit
+wl_rsv2 2bit
+wl_vxlan_add_flag 1bit
+wl_l2tp_add_flag 1bit
+wl_v6rd_add_flag 1bit
+wl_ds_lite_add_flag 1bit
+wl_pppoe_add_flag 1bit
+wl_add_flag 1bit
+
+*** ACL_WAN_LINK_IP_ENCAP_TABLE_T: ext_flag=1 ***
+wl_ip_e_ipv6.ipv6_rsv3 32bit
+wl_ip_e_ipv6.ipv6_rsv2 32bit
+wl_ip_e_ipv6.ipv6_rsv1 12bit
+wl_ip_e_ipv6.flow_lable 20bit
+wl_ip_e_ipv6.next_head 8bit
+wl_ip_e_ipv6.hop_limit 8bit
+wl_ip_e_ipv6.dscp 8bit
+wl_ip_e_ipv6.ipv6_rsv0 4bit
+wl_ip_e_ipv6.ip_ver 4bit
+wl_ip_e_ipv4.identification 16bit
+wl_ip_e_ipv4.init_checksum 16bit
+wl_ip_e_ipv4.sip 32bit
+wl_ip_e_ipv4.dip 32bit
+wl_ip_e_ipv4.ipv4_protocol 8bit
+wl_ip_e_ipv4.ttl 8bit
+wl_ip_e_ipv4.tos 8bit
+wl_ip_e_ipv4.header_len 4bit
+wl_ip_e_ipv4.ip_ver 4bit
+
+*** ACL_WAN_LINK_LOCAL_IPV6_TABLE_T: ext_flag=1 ***
+wl_l_v6_ipv6_addr3 32bit
+wl_l_v6_ipv6_addr2 32bit
+wl_l_v6_ipv6_addr1 32bit
+wl_l_v6_ipv6_addr0 32bit
+
+*** ACL_WAN_LINK_REMOTE_IPV6_TABLE_T: ext_flag=1 ***
+wl_r_v6_ipv6_addr3 32bit
+wl_r_v6_ipv6_addr2 32bit
+wl_r_v6_ipv6_addr1 32bit
+wl_r_v6_ipv6_addr0 32bit
+
+*** ACL_WAN_LINK_UDP_ENCAP_TABLE_T: ext_flag=1 ***
+wl_u_e_dport 16bit
+wl_u_e_sport 16bit
+
+*** ACL_L2TP_VXLAN_ENCAP_TABLE_T: ext_flag=1 ***
+l2_vx_einfo3 32bit
+l2_vx_einfo2 32bit
+l2_vx_einfo1 32bit
+l2_vx_einfo0 32bit
+
+*** ACL_MAC_ENCAP_TABLE_T: ext_flag=1 ***
+mc_e_inner_tag 32bit
+mc_e_outer_tag 32bit
+mc_e_dmac_l32 32bit
+mc_e_dmac_h16 16bit
+mc_e_rsv 14bit
+mc_e_inner_tag_en 1bit
+mc_e_outer_tag_en 1bit
+=== acl_ipv6_mac_table_set
+
+*** ACL_IPV6_MAC_TABLE_T: ext_flag=0 ***
+smac_l32 32bit
+smac_h16 16bit
+dmac_l32 32bit
+dmac_h16 16bit
+=== acl_l2tp_vxlan_encap_table_set
+
+*** acl_l2tp_vxlan_encap_table ***
+echo start_index [end_index] > acl_l2tp_vxlan_encap_table_get index:0~255 
+echo index > acl_l2tp_vxlan_encap_table_free index:0~255 
+echo struct_info=hex_val ... > acl_l2tp_vxlan_encap_table_set 
+    more info:  echo help > acl_l2tp_vxlan_encap_table_set 
+    echo info0=1234abcd info1=2345bcde info2=cdef9876 info3=abcd5678 > acl_l2tp_vxlan_encap_table_set
+
+*** ACL_L2TP_VXLAN_ENCAP_TABLE_T: ext_flag=0 ***
+info3 32bit
+info2 32bit
+info1 32bit
+info0 32bit
+=== acl_mac_encap_table_set
+
+*** acl_mac_encap_table ***
+echo start_index [end_index] > acl_mac_encap_table_get index:0~255 
+echo index > acl_mac_encap_table_free index:0~255 
+echo table_index=hex_val struct_info=hex_val ... > acl_mac_encap_table_set 
+    more info:  echo help > acl_mac_encap_table_set 
+    echo table_index=3f outer_tag=81007400 outer_tag_en=1 dmac_l32=1234abcd dmac_h16=89ab > acl_mac_encap_table_set
+
+*** ACL_MAC_ENCAP_TABLE_T: ext_flag=0 ***
+inner_tag 32bit
+outer_tag 32bit
+dmac_l32 32bit
+dmac_h16 16bit
+rsv 14bit
+inner_tag_en 1bit
+outer_tag_en 1bit
+=== acl_next_hop_table_set
+
+*** acl_next_hop_table ***
+echo start_index [end_index] > acl_next_hop_table_get index:0~511 
+echo index > acl_next_hop_table_free index:0~511 
+echo [mac_h16=hex_val] [mac_l32=hex_val] [dipv4=hex_val] > acl_next_hop_table_set 
+    more info:  echo help > acl_next_hop_table_set 
+    echo mac_h16=10ab mac_l32=56789abc dipv4=c0a80108 > acl_next_hop_table_set
+    echo reserve_index=3 mac_h16=10cd mac_l32=1234cdef sipv4=c0a80055 > acl_next_hop_table_set
+
+*** ACL_NEXT_HOP_TABLE_T: ext_flag=0 ***
+rsv1 32bit
+dipv4 32bit
+mac_l32 32bit
+mac_h16 16bit
+rsv0 16bit
+reserve_index 6bit
+ipv6_addr3 32bit
+ipv6_addr2 32bit
+ipv6_addr1 32bit
+ipv6_addr0 32bit
+=== acl_sfu_table_set
+
+*** acl_sfu_table ***
+echo [k_xxx=hex_val:hex_mask] [k_yyy=hex_val:hex_mask] ... [r_zzz=hex_val] ... > acl_sfu_table_set 
+    more info:  echo help > acl_sfu_table_set 
+    echo k_sip=c0a80102:ffffffff k_dip=c0a80105:ffffffff k_ip_protocol=11:ff k_sport=400:ffff k_dport=401:ffff r_out_port=4 r_out_que=0 > acl_sfu_table_set
+cat acl_sfu_table_show -- show all valid acl_sfu_table info
+echo cnt > acl_sfu_table_show -- show acl_sfu_table cnt
+echo multi_info=hex_val mode_info=hex_val > acl_sfu_table_del
+    multi_info  mode_info  print at acl_sfu_table_set (only del generate by acl_sfu_table_set)
+
+*** ACL_SFU_TABLE_KEY_T: ***
+k_outer_vid xxx:fff  (12bit)
+k_outer_cfi xxx:1  (1bit)
+k_outer_pri xxx:7  (3bit)
+k_gem_port xxx:ffff  (16bit)
+k_dscp_tc xxx:ff  (8bit)
+k_src_port xxx:3f  (6bit)
+k_tag_level xxx:7  (3bit)
+k_dest_port xxx:3f  (6bit)
+k_rsv2 xxx:1  (1bit)
+k_ip_protocol xxx:ff  (8bit)
+k_inner_vid xxx:fff  (12bit)
+k_inner_cfi xxx:1  (1bit)
+k_inner_pri xxx:7  (3bit)
+k_inner_tpid xxx:ffff  (16bit)
+k_outer_tpid xxx:ffff  (16bit)
+k_rsv1 xxx:ff  (8bit)
+k_rule_mode xxx:1  (1bit)
+k_flag xxx:7f  (7bit)
+k_ethtype xxx:ffff  (16bit)
+k_rsv0 xxx:ffff  (16bit)
+k_sa_l32 xxx:ffffffff  (32bit)
+k_sa_h16 xxx:ffff  (16bit)
+k_da_l16 xxx:ffff  (16bit)
+k_da_h32 xxx:ffffffff  (32bit)
+k_dport xxx:ffff  (16bit)
+k_sport xxx:ffff  (16bit)
+k_sip xxx:ffffffff  (32bit)
+k_dip xxx:ffffffff  (32bit)
+
+*** ACL_SFU_TABLE_RESULT_T: ***
+r_rsv_hard_age (18bit)
+r_rsv0 (5bit)
+r_out_que (9bit)
+r_gemport (16bit)
+r_pkt_len_change_val (7bit)
+r_dscp_tc (8bit)
+r_dscp_tc_modify_en (1bit)
+r_out_port (6bit)
+r_acl_sfu_vlan_table_index (10bit)
+r_vlan_action (4bit)
+r_mtu_val (12bit)
+r_mtu_en (1bit)
+r_pkt_len_is_del_flag (1bit)
+r_pkt_len_change_en (1bit)
+r_stat_flow_id (12bit)
+r_stat_flow_id_after_modify (1bit)
+r_stat_flow_id_en (1bit)
+r_ratelimit_bucket_id (6bit)
+r_ratelimit_en (1bit)
+r_out_port_is_wifi_flag (1bit)
+r_action_drop_en (1bit)
+r_pri (5bit)
+r_hash_hit (1bit)
+
+*** ACL_VLAN_TABLE_T: ext_flag=1 ***
+vl_inner_vid 12bit
+vl_inner_cfi 1bit
+vl_inner_pri 3bit
+vl_inner_tpid 16bit
+vl_outer_vid 12bit
+vl_outer_cfi 1bit
+vl_outer_pri 3bit
+vl_outer_tpid 16bit
+vl_rsv2 32bit
+vl_rsv1 16bit
+vl_inner_rsv2 3bit
+vl_inner_vid_en 1bit
+vl_inner_cfi_en 1bit
+vl_inner_pri_en 1bit
+vl_inner_rsv1 1bit
+vl_inner_tpid_en 1bit
+vl_outer_rsv2 3bit
+vl_outer_vid_en 1bit
+vl_outer_cfi_en 1bit
+vl_outer_pri_en 1bit
+vl_outer_rsv1 1bit
+vl_outer_tpid_en 1bit
+=== acl_source_table_set
+
+*** acl_source_table ***
+echo start_index [end_index] > acl_source_table_get index:0~511 
+echo index > acl_source_table_free index:0~511 
+echo [mac_h16=hex_val] [mac_l32=hex_val] [sipv4=hex_val] > acl_source_table_set 
+    more info:  echo help > acl_source_table_set 
+    echo mac_h16=1023 mac_l32=abcd1234 sipv4=c0a80102 > acl_source_table_set
+    echo reserve_index=3 mac_h16=10ab mac_l32=89abcdef sipv4=c0a80002 > acl_source_table_set
+
+*** ACL_SOURCE_TABLE_T: ext_flag=0 ***
+rsv1 32bit
+sipv4 32bit
+mac_l32 32bit
+mac_h16 16bit
+rsv0 16bit
+reserve_index 6bit
+ipv6_addr0 32bit
+ipv6_addr1 32bit
+ipv6_addr2 32bit
+ipv6_addr3 32bit
+=== acl_vlan_table_set
+
+*** acl_vlan_table ***
+echo start_index [end_index] > acl_vlan_table_get index:0~1023 
+echo index > acl_vlan_table_free index:0~1023 
+echo struct_info=hex_val ... > acl_vlan_table_set 
+    more info:  echo help > acl_vlan_table_set 
+    echo outer_vid_en=1 outer_vid=1ff outer_tpid_en=1 outer_tpid=0800 > acl_vlan_table_set
+    echo outer_vid_en=1 outer_vid=1ff outer_tpid_en=1 outer_tpid=0800 inner_pri_en=1 inner_pri=2 > acl_vlan_table_set
+
+*** ACL_VLAN_TABLE_T: ext_flag=0 ***
+inner_vid 12bit
+inner_cfi 1bit
+inner_pri 3bit
+inner_tpid 16bit
+outer_vid 12bit
+outer_cfi 1bit
+outer_pri 3bit
+outer_tpid 16bit
+rsv2 32bit
+rsv1 16bit
+inner_rsv2 3bit
+inner_vid_en 1bit
+inner_cfi_en 1bit
+inner_pri_en 1bit
+inner_rsv1 1bit
+inner_tpid_en 1bit
+outer_rsv2 3bit
+outer_vid_en 1bit
+outer_cfi_en 1bit
+outer_pri_en 1bit
+outer_rsv1 1bit
+outer_tpid_en 1bit
+=== acl_wan_link_ip_encap_table_set
+
+*** acl_wan_link_ip_encap_table ***
+echo start_index [end_index] > acl_wan_link_ip_encap_table_get index:0~31 
+echo index > acl_wan_link_ip_encap_table_free index:0~31 
+echo table_index=hex_val struct_info=hex_val ... > acl_wan_link_ip_encap_table_set 
+    more info:  echo help > acl_wan_link_ip_encap_table_set 
+    echo table_index=5 ipv4.ip_ver=4 ipv4.header_len=a ipv4.ipv4_protocol=11 > acl_wan_link_ip_encap_table_set
+    echo table_index=1a ipv6.ip_ver=6 ipv6.next_head=11 > acl_wan_link_ip_encap_table_set
+
+*** ACL_WAN_LINK_IP_ENCAP_TABLE_T: ext_flag=0 ***
+ipv6.ipv6_rsv3 32bit
+ipv6.ipv6_rsv2 32bit
+ipv6.ipv6_rsv1 12bit
+ipv6.flow_lable 20bit
+ipv6.next_head 8bit
+ipv6.hop_limit 8bit
+ipv6.dscp 8bit
+ipv6.ipv6_rsv0 4bit
+ipv6.ip_ver 4bit
+ipv4.identification 16bit
+ipv4.init_checksum 16bit
+ipv4.sip 32bit
+ipv4.dip 32bit
+ipv4.ipv4_protocol 8bit
+ipv4.ttl 8bit
+ipv4.tos 8bit
+ipv4.header_len 4bit
+ipv4.ip_ver 4bit
+=== acl_wan_link_local_ipv6_table_set
+
+*** acl_wan_link_local_ipv6_table ***
+echo start_index [end_index] > acl_wan_link_local_ipv6_table_get index:0~31 
+echo index > acl_wan_link_local_ipv6_table_free index:0~31 
+echo table_index=hex_val struct_info=hex_val ... > acl_wan_link_local_ipv6_table_set 
+    more info:  echo help > acl_wan_link_local_ipv6_table_set 
+    echo table_index=5 ipv6_addr0=20010000 ipv6_addr1=00000000 ipv6_addr2=00000000 ipv6_addr3=abcd1234 > acl_wan_link_local_ipv6_table_set
+
+*** ACL_WAN_LINK_LOCAL_IPV6_TABLE_T: ext_flag=0 ***
+ipv6_addr3 32bit
+ipv6_addr2 32bit
+ipv6_addr1 32bit
+ipv6_addr0 32bit
+=== acl_wan_link_remote_ipv6_table_set
+
+*** acl_wan_link_remote_ipv6_table ***
+echo start_index [end_index] > acl_wan_link_remote_ipv6_table_get index:0~31 
+echo index > acl_wan_link_remote_ipv6_table_free index:0~31 
+echo table_index=hex_val struct_info=hex_val ... > acl_wan_link_remote_ipv6_table_set 
+    more info:  echo help > acl_wan_link_remote_ipv6_table_set 
+    echo table_index=5 ipv6_addr0=20010000 ipv6_addr1=00000000 ipv6_addr2=00000000 ipv6_addr3=abcd1234 > acl_wan_link_remote_ipv6_table_set
+
+*** ACL_WAN_LINK_REMOTE_IPV6_TABLE_T: ext_flag=0 ***
+ipv6_addr3 32bit
+ipv6_addr2 32bit
+ipv6_addr1 32bit
+ipv6_addr0 32bit
+=== acl_wan_link_table_set
+
+*** acl_wan_link_table ***
+echo start_index [end_index] > acl_wan_link_table_get index:0~63 
+echo index > acl_wan_link_table_free index:0~63 
+echo table_index=hex_val struct_info=hex_val ... > acl_wan_link_table_set 
+    more info:  echo help > acl_wan_link_table_set 
+    echo table_index=5 add_flag=1 pppoe_add_flag=1 pppoe_session_id=12ff > acl_wan_link_table_set
+    echo table_index=2a del_flag=1 ds_lite_del_flag=1 > acl_wan_link_table_set
+
+*** ACL_WAN_LINK_TABLE_T: ext_flag=0 ***
+rsv0 32bit
+pppoe_session_id 16bit
+rsv1 2bit
+vxlan_del_flag 1bit
+l2tp_del_flag 1bit
+v6rd_del_flag 1bit
+ds_lite_del_flag 1bit
+pppoe_del_flag 1bit
+del_flag 1bit
+rsv2 2bit
+vxlan_add_flag 1bit
+l2tp_add_flag 1bit
+v6rd_add_flag 1bit
+ds_lite_add_flag 1bit
+pppoe_add_flag 1bit
+add_flag 1bit
+=== acl_wan_link_udp_encap_table_set
+
+*** acl_wan_link_udp_encap_table ***
+echo start_index [end_index] > acl_wan_link_udp_encap_table_get index:0~31 
+echo index > acl_wan_link_udp_encap_table_free index:0~31 
+echo table_index=hex_val dport=hex_val sport=hex_val > acl_wan_link_udp_encap_table_set 
+    more info:  echo help > acl_wan_link_udp_encap_table_set 
+    echo table_index=5 dport=0400 sport=1abc > acl_wan_link_udp_encap_table_set
+
+*** ACL_WAN_LINK_UDP_ENCAP_TABLE_T: ext_flag=0 ***
+dport 16bit
+sport 16bit
+=== ipsec_up_l2_tables_set
+
+*** ipsec_up_l2_tables ***
+echo index > ipsec_up_l2_tables_get index:0~63 
+echo help > ipsec_up_l2_tables_set 
+echo index > ipsec_up_l2_tables_free index:0~63 
+echo all > ipsec_up_l2_tables_get 
+echo [table_index=hex_val] [eth_proto=hex_val] [gemport_id=hex_val] ... [dmac_h32=hex_val] [dmac_116=hex_val] > ipsec_up_l2_tables_set 
+
+*** ipsec_up_l2_tables: ***
+table_index 16bit
+rsv3 32bit
+eth_proto 16bit
+gemport_id 16bit
+rsv2 9bit
+queue_id 9bit
+out_port 6bit
+l2_len 8bit
+pppoe_session_id 16bit
+rsv1 14bit
+pppoe_flag 1bit
+s_tag_flag 1bit
+s_vlan_tci 16bit
+s_vlan_proto 16bit
+smac_l32 32bit
+smac_h16 16bit
+dmac_116 16bit
+dmac_h32 32bit
+[exit 0]

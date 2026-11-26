@@ -1,0 +1,15 @@
+{"label": "m4.o V=14", "word": "02986a2e0003b1c5", "delta": {"unicast": 36, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"label": "m4.o V=15", "word": "02986a2e0003b1e5", "delta": {"unicast": 0, "multicast": 2, "boardcast": 58}, "ping_rx": 30}
+{"label": "m4.o V=16", "word": "02986a2e0003b205", "delta": {"unicast": 0, "multicast": 0, "boardcast": 36}, "ping_rx": 30}
+{"label": "m5.o V=14", "word": "02986a2e0003b5c5", "delta": {"unicast": 30, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"label": "m5.o V=15", "word": "02986a2e0003b5e5", "delta": {"unicast": 60, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"label": "m5.o V=16", "word": "02986a2e0003b605", "delta": {"unicast": 0, "multicast": 0, "boardcast": 57}, "ping_rx": 30}
+{"label": "m6.o V=14", "word": "02986a2e0003b9c5", "delta": {"unicast": 0, "multicast": 0, "boardcast": 72}, "ping_rx": 30}
+{"label": "m6.o V=15", "word": "02986a2e0003b9e5", "delta": {"unicast": 0, "multicast": 0, "boardcast": 36}, "ping_rx": 30}
+{"label": "m6.o V=16", "word": "02986a2e0003ba05", "delta": {"unicast": 30, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"label": "m7.o V=14", "word": "02986a2e0003bdc5", "delta": {"unicast": 0, "multicast": 0, "boardcast": 30}, "ping_rx": 30}
+{"label": "m7.o V=15", "word": "02986a2e0003bde5", "delta": {"unicast": 60, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"label": "m7.o V=16", "word": "02986a2e0003be05", "delta": {"unicast": 63, "multicast": 0, "boardcast": 0}, "ping_rx": 30}
+{"restored": "0x2906a760003a001", "ok": true}
+
+[exited with code 0]

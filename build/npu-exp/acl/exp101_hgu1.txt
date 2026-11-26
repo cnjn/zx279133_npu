@@ -1,0 +1,263 @@
+=== echo reserve_index=1 mac_h16=00d0 mac_l32=d0616201 sipv4=0a080808 > acl_debug/acl_source_table_set
+
+
+[np_user_table_test_acl_source_table_set] input raw len=61
+ reserve_index=1 mac_h16=00d0 mac_l32=d0616201 sipv4=0a080808
+ 
+
+*** check ACL_SOURCE_TABLE_T :
+mac_h16=208=0xd0 (16bit)
+mac_l32=3496043009=0xd0616201 (32bit)
+sipv4=168298504=0xa080808 (32bit)
+reserve_index=1=0x1 (6bit)
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1400, bit_off 0x80, addr_ind 0xa0080 
+writing eram128: 0x0 0xa080808 0xd0616201 0xd0 
+[se_smmu0_write] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_source_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xa0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_source_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x a080808
+   2 bit 64~ 95=0xd0616201
+   3 bit 96~127=0x      d0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) sipv4 =168298504 =0xa080808 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =3496043009 =0xd0616201 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =208 =0xd0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =168298504 =0xa080808 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =3496043009 =0xd0616201 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =208 =0xd0 (32 bit)
+
+[np_user_table_test_acl_source_table_set] success! table_index=1
+=== echo reserve_index=1 mac_h16=00e0 mac_l32=41680d86 dipv4=0a090909 > acl_debug/acl_next_hop_table_set
+
+
+[np_user_table_test_acl_next_hop_table_set] input raw len=61
+ reserve_index=1 mac_h16=00e0 mac_l32=41680d86 dipv4=0a090909
+ 
+
+*** check ACL_NEXT_HOP_TABLE_T :
+dipv4=168364297=0xa090909 (32bit)
+mac_l32=1097338246=0x41680d86 (32bit)
+mac_h16=224=0xe0 (16bit)
+reserve_index=1=0x1 (6bit)
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1600, bit_off 0x80, addr_ind 0xb0080 
+writing eram128: 0x0 0xa090909 0x41680d86 0xe0 
+[se_smmu0_write] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_next_hop_table_set] set sucess! table_index=1
+[se_smmu0_read] addr_ind : 0xb0080, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x1 used_cnt=1
+
+  acl_next_hop_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x a090909
+   2 bit 64~ 95=0x41680d86
+   3 bit 96~127=0x      e0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) dipv4 =168364297 =0xa090909 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =1097338246 =0x41680d86 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =224 =0xe0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =168364297 =0xa090909 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =1097338246 =0x41680d86 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =224 =0xe0 (32 bit)
+[np_user_table_test_acl_next_hop_table_set] success! table_index=1
+=== echo k_sip=0a010102:ffffffff k_dip=0a020202:ffffffff k_ip_protocol=11:ff k_l4_sport=9c41:ffff k_l4_dport=1e65:ffff r_out_port=5 r_out_que=0 r_acl_source_table_index=1 r_acl_next_hop_table_index=1 r_sip_change_en=1 r_smac_change_en=1 r_dip_change_en=1 r_dmac_change_en=1 r_l4_sport_change_en=1 r_l4_sport=1111 r_l4_dport_change_en=1 r_l4_dport=2222 > acl_debug/acl_hgu_table_set
+
+
+[np_user_table_test_acl_hgu_table_set] input raw len=343 
+ k_sip=0a010102:ffffffff k_dip=0a020202:ffffffff k_ip_protocol=11:ff k_l4_sport=9c41:ffff k_l4_dport=1e65:ffff r_out_port=5 r_out_que=0 r_acl_source_table_index=1 r_acl_next_hop_table_index=1 r_sip_change_en=1 r_smac_change_en=1 r_dip_change_en=1 r_dmac_change_en=1 r_l4_sport_change_en=1 r_l4_sport=1111 r_l4_dport_change_en=1 r_l4_dport=2222
+
+*** check key mask :
+k_sip key=167837954=0xa010102 mask=0xffffffff (32bit)
+k_dip key=167903746=0xa020202 mask=0xffffffff (32bit)
+k_l4_dport key=7781=0x1e65 mask=0xffff (16bit)
+k_l4_sport key=40001=0x9c41 mask=0xffff (16bit)
+k_ip_protocol key=17=0x11 mask=0xff (8bit)
+
+*** check result :
+r_out_port=5=0x5 (6bit)
+r_out_que=0=0x0 (9bit)
+r_acl_next_hop_table_index=1=0x1 (9bit)
+r_acl_source_table_index=1=0x1 (9bit)
+r_l4_dport=8738=0x2222 (16bit)
+r_l4_sport=4369=0x1111 (16bit)
+r_dmac_change_en=1=0x1 (1bit)
+r_dip_change_en=1=0x1 (1bit)
+r_smac_change_en=1=0x1 (1bit)
+r_sip_change_en=1=0x1 (1bit)
+r_l4_dport_change_en=1=0x1 (1bit)
+r_l4_sport_change_en=1=0x1 (1bit)
+
+*** check ACL_NEXT_HOP_TABLE_T :
+[se_smmu0_read] addr_ind : 0xb1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1600, bit_off 0x1100, addr_ind 0xb1100 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xb1100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_next_hop_table_set] set sucess! table_index=34
+[se_smmu0_read] addr_ind : 0xb1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x22 used_cnt=1
+
+  acl_next_hop_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) dipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+acl_next_hop_table temp_table_index=34 acl_next_hop_table_index=34=0x22
+
+
+*** check ACL_SOURCE_TABLE_T :
+[se_smmu0_read] addr_ind : 0xa1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+base 0x1400, bit_off 0x1100, addr_ind 0xa1100 
+writing eram128: 0x0 0x0 0x0 0x0 
+[se_smmu0_write] addr_ind : 0xa1100, table_word32_len : 4
+cmd_ind:0x8c000000
+  cpu_ind_rw: 1, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_write] success.
+[se_eram_table_set_by_sdt_info] success
+[user_acl_source_table_set] set sucess! table_index=34
+[se_smmu0_read] addr_ind : 0xa1100, table_word32_len : 4
+cmd_ind:0xc000000
+  cpu_ind_rw: 0, cpu_rd_mode: 0, cpu_stat_or_sdt: 0, cpu_req_mode: 3
+[pps_glb_get_se_ikey_agclk_en] return ok. value = 0
+[se_smmu0_read] success.
+[se_eram_table_get_by_sdt_info] success
+
+index : 0x22 used_cnt=1
+
+  acl_source_table_data:
+   0 bit  0~ 31=0x       0
+   1 bit 32~ 63=0x       0
+   2 bit 64~ 95=0x       0
+   3 bit 96~127=0x       0
+  bit(  0~ 31), data[ 0] RSP[ 3] ( 0~31) rsv1 =0 =0x0 (32 bit)
+  bit( 32~ 63), data[ 1] RSP[ 2] ( 0~31) sipv4 =0 =0x0 (32 bit)
+  bit( 64~ 95), data[ 2] RSP[ 1] ( 0~31) mac_l32 =0 =0x0 (32 bit)
+  bit( 96~111), data[ 3] RSP[ 0] ( 0~15) mac_h16 =0 =0x0 (16 bit)
+  bit(112~127), data[ 3] RSP[ 0] (16~31) rsv0 =0 =0x0 (16 bit)
+  bit(128~159), data[ 4] RSP[134217727] ( 0~31) ipv6_addr3 =0 =0x0 (32 bit)
+  bit(160~191), data[ 5] RSP[134217726] ( 0~31) ipv6_addr2 =0 =0x0 (32 bit)
+  bit(192~223), data[ 6] RSP[134217725] ( 0~31) ipv6_addr1 =0 =0x0 (32 bit)
+  bit(224~255), data[ 7] RSP[134217724] ( 0~31) ipv6_addr0 =0 =0x0 (32 bit)
+
+acl_source_table temp_table_index=34 acl_source_table_index=34=0x22
+
+
+*** check ACL_IPV6_MAC_TABLE_T :
+
+*** acl_hgu_table_set
+[se_hash_multi_table_set] sdt_no is 164
+ KEY: start_bit:128, end_bit:231, location:2, key_size(Bytes)16.
+[PPS][hash_multi_extract_key] mask-start-bit: 128, bit_len:104, location:2
+[PPS][hash_multi_get_hash_table_and_key_width] key_size: 4, tbl_width:3
+[PPS][hash_multi_table_id_prefetch][L:689] get unused tbl_id :0, width 3
+[PPS][hash_multi_idx_addr_alloc][L:852] type1 addr :0
+indirect_cmd : 0x8800
+  rd_wr_flag : 1, rw_addr : 0, tbl_type : 4
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_parser_write] success.
+[PPS][hash_multi_tbl_info_hw_set][L:950] wr config-tbl hw succ.
+indirect_cmd : 0x8600
+  rd_wr_flag : 1, rw_addr : 0, tbl_type : 3
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_parser_write] success.
+[PPS][hash_multi_table_id_occupy][L:765] width 3, tbl_id 0 occupy success, list-nodes:1
+[PPS][hash_multi_info_list_add][L:1056] add to idx-addr 0x0 succ, item:0
+[PPS][__se_hash_multi_table_set][L:1238] trans to single-hash
+ rsp_mode:0x3
+ table_id:0x0
+ key_size:0x4
+ tbl_width:0x3
+ hash_id:0x1
+ table_type:0x3
+
+ key_len:0x10
+Now age index [0x2]
+[se_hash_zcam_get_zcell_available_space] zblock_start: 2, zcell_start : 0, zblock_end: 3, zcell_end: 4
+[se_hash_zcam_get_zcell_available_space] crc16_rst is 0xabb5
+[se_hash_zcam_get_zcell_available_space] cur_zcell_end: 4
+[se_hash_generate_hash_table] rsp_byte_len(32) < table_user_data_len(35)
+cmd_rgt: 0xf10b5
+ rw_flag = 0, mask = 0xf, reg_sram_flag = 0
+ zgroup_id = 1, zblock_id = 0, zcell_id = 0x0, addr = 0xb5
+[se_alg_write] offset = 0, size = 16
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_alg_hash_table_write] success
+
+add mask(0xf) to zgroup : 1, zblock : 0, zcell : 0, addr : 0xb5. now mask is 0xf
+[__se_hash_table_set_by_sdt_info] add new table
+[PPS][__se_hash_multi_table_set][L:1262] multi-hash add success
+
+table_info_data multi_info=ffffffc01e1a2580 node_info=ffffffc01e1a2e80 sdt_info[0]=0x800 sdt_info[1]=0x33a03000
+
+
+***del this table use: ***
+echo multi_info=ffffffc01e1a2580 node_info=ffffffc01e1a2e80 > acl_hgu_table_del 
+
+[exit 0]

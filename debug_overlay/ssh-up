@@ -1,0 +1,23 @@
+#!/bin/sh
+# Stock system (stock-busybox image): start Dropbear SSH/scp/SFTP on the LAN bridge.
+# Usage: ssh-up [ADDRESS] [PORT]   (default: first IPv4 address of br0, port 22)
+# Run it by hand after the vendor system has finished booting; nothing starts it
+# automatically. Re-run it if the vendor firewall manager rebuilds iptables.
+PATH=/debug/bin:/sbin:/bin:/usr/sbin:/usr/bin
+lan_if=${LAN_IF:-br0}
+addr=$1
+port=${2:-22}
+
+if [ -z "$addr" ]; then
+    addr=$(ip -4 -o addr show dev "$lan_if" 2>/dev/null | sed -n 's/.* inet \([0-9.]*\)\/.*/\1/p' | head -n 1)
+    [ -n "$addr" ] || { echo "ssh-up: $lan_if has no IPv4 address yet; pass ADDRESS" >&2; exit 1; }
+fi
+
+# The vendor firewall only admits its own LAN services; let SSH in from the LAN side.
+if command -v iptables >/dev/null 2>&1; then
+    rule="INPUT -i $lan_if -p tcp -d $addr --dport $port -j ACCEPT"
+    iptables -C $rule 2>/dev/null || iptables -I $rule ||
+        echo "ssh-up: could not add the iptables rule; SSH may be filtered" >&2
+fi
+
+exec lab-sshd "$addr" "$port"

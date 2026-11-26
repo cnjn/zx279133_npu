@@ -1,0 +1,22 @@
+# Lab configuration for npukit. Copy to npu/config.toml and fill in.
+# The analysis host reaches the board only through a "jump" Mac that owns the board's UART
+# (USB serial) and has a NIC cabled to one of the board's LAN ports.
+
+[mac]
+host = "192.168.174.5"                 # ssh destination of the jump Mac (key login, no password prompt)
+workdir = "npukit"                     # helper directory on the Mac; relative paths are under $HOME
+serial_dev = "/dev/cu.usbmodemXXXXXXXX" # the board's UART on the Mac (115200 8N1)
+iface = "en8"                          # Mac interface cabled to the board LAN port
+addr = "00:e0:41:68:0d:86"             # MAC address of that interface
+ip = "192.168.1.2"
+
+[board]
+ip = "192.168.1.1"
+addr = "00:d0:d0:61:62:01"             # board eth0 MAC (ip link on the board)
+lan_port = 5                           # NP port number of the cabled LAN port (LAN1 = 5)
+uplink_port = 0                        # uplink (WAN) port: #34 entry 0 bits 31:26
+push_port = 9178
+stock_mcode = "/etc/mcode/mcode_133.bin"
+
+[test]
+fake_sa = "02:00:00:00:00:02"          # source MAC of raw test frames; never use the Mac's own MAC

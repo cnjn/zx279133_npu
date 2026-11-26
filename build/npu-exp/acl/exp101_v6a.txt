@@ -1,0 +1,144 @@
+=== echo multi_info=ffffffc01e135a80 node_info=ffffffc01e135b80 > acl_debug/acl_hgu_table_del
+multi_info=0xffffffc01e135a80 temp_val=ffffffc01e135a80
+node_info=ffffffc01e135b80 temp_val=ffffffc01e135b80
+
+table_info_data multi_info=ffffffc01e135a80 node_info=ffffffc01e135b80 sdt_info[0]=0x0 sdt_info[1]=0x0
+
+cmd_rgt: 0xf10b5
+ rw_flag = 0, mask = 0xf, reg_sram_flag = 0
+ zgroup_id = 1, zblock_id = 0, zcell_id = 0x0, addr = 0xb5
+[se_alg_write] offset = 0, size = 16
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_alg_hash_table_write] success
+[__se_hash_table_by_node_info]age_index 2147483650
+[PPS][hash_multi_table_id_free][L:813] width 3, tbl_id 0 free success, list nodes:0
+indirect_cmd : 0x8600
+  rd_wr_flag : 1, rw_addr : 0, tbl_type : 3
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_parser_write] success.
+[PPS][hash_multi_idx_addr_free][L:1087] tbl1 free addr succ :0
+[np_user_table_test_acl_hgu_table_del] success
+=== echo k_sip=83a5a002:ffffffff k_dip=8d913587:ffffffff k_ip_protocol=11:ff k_l4_sport=9c41:ffff k_l4_dport=1e65:ffff r_out_port=5 r_out_que=0 r_l4_dport_change_en=1 r_l4_dport=aaaa > acl_debug/acl_hgu_table_set
+
+
+[np_user_table_test_acl_hgu_table_set] input raw len=174 
+ k_sip=83a5a002:ffffffff k_dip=8d913587:ffffffff k_ip_protocol=11:ff k_l4_sport=9c41:ffff k_l4_dport=1e65:ffff r_out_port=5 r_out_que=0 r_l4_dport_change_en=1 r_l4_dport=aaaa
+
+*** check key mask :
+k_sip key=2208669698=0x83a5a002 mask=0xffffffff (32bit)
+k_dip key=2375103879=0x8d913587 mask=0xffffffff (32bit)
+k_l4_dport key=7781=0x1e65 mask=0xffff (16bit)
+k_l4_sport key=40001=0x9c41 mask=0xffff (16bit)
+k_ip_protocol key=17=0x11 mask=0xff (8bit)
+
+*** check result :
+r_out_port=5=0x5 (6bit)
+r_out_que=0=0x0 (9bit)
+r_l4_dport=43690=0xaaaa (16bit)
+r_l4_dport_change_en=1=0x1 (1bit)
+
+*** acl_hgu_table_set
+[se_hash_multi_table_set] sdt_no is 164
+ KEY: start_bit:128, end_bit:231, location:2, key_size(Bytes)16.
+[PPS][hash_multi_extract_key] mask-start-bit: 128, bit_len:104, location:2
+[PPS][hash_multi_get_hash_table_and_key_width] key_size: 4, tbl_width:3
+[PPS][hash_multi_table_id_prefetch][L:689] get unused tbl_id :0, width 3
+[PPS][hash_multi_idx_addr_alloc][L:852] type1 addr :0
+indirect_cmd : 0x8800
+  rd_wr_flag : 1, rw_addr : 0, tbl_type : 4
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_parser_write] success.
+[PPS][hash_multi_tbl_info_hw_set][L:950] wr config-tbl hw succ.
+indirect_cmd : 0x8600
+  rd_wr_flag : 1, rw_addr : 0, tbl_type : 3
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_parser_write] success.
+[PPS][hash_multi_table_id_occupy][L:765] width 3, tbl_id 0 occupy success, list-nodes:1
+[PPS][hash_multi_info_list_add][L:1056] add to idx-addr 0x0 succ, item:0
+[PPS][__se_hash_multi_table_set][L:1238] trans to single-hash
+ rsp_mode:0x3
+ table_id:0x0
+ key_size:0x4
+ tbl_width:0x3
+ hash_id:0x1
+ table_type:0x3
+
+ key_len:0x10
+Now age index [0x2]
+[se_hash_zcam_get_zcell_available_space] zblock_start: 2, zcell_start : 0, zblock_end: 3, zcell_end: 4
+[se_hash_zcam_get_zcell_available_space] crc16_rst is 0x5a83
+[se_hash_zcam_get_zcell_available_space] cur_zcell_end: 4
+[se_hash_generate_hash_table] rsp_byte_len(32) < table_user_data_len(35)
+cmd_rgt: 0xf1083
+ rw_flag = 0, mask = 0xf, reg_sram_flag = 0
+ zgroup_id = 1, zblock_id = 0, zcell_id = 0x0, addr = 0x83
+[se_alg_write] offset = 0, size = 16
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_alg_hash_table_write] success
+
+add mask(0xf) to zgroup : 1, zblock : 0, zcell : 0, addr : 0x83. now mask is 0xf
+[__se_hash_table_set_by_sdt_info] add new table
+[PPS][__se_hash_multi_table_set][L:1262] multi-hash add success
+
+table_info_data multi_info=ffffffc01e981200 node_info=ffffffc01e981580 sdt_info[0]=0x800 sdt_info[1]=0x33a03000
+
+
+***del this table use: ***
+echo multi_info=ffffffc01e981200 node_info=ffffffc01e981580 > acl_hgu_table_del 
+
+=== echo k_sip=6231358f:ffffffff k_dip=12da0936:ffffffff k_ip_protocol=11:ff k_l4_sport=9c41:ffff k_l4_dport=1e65:ffff r_out_port=5 r_out_que=0 r_l4_dport_change_en=1 r_l4_dport=bbbb > acl_debug/acl_hgu_table_set
+
+
+[np_user_table_test_acl_hgu_table_set] input raw len=174 
+ k_sip=6231358f:ffffffff k_dip=12da0936:ffffffff k_ip_protocol=11:ff k_l4_sport=9c41:ffff k_l4_dport=1e65:ffff r_out_port=5 r_out_que=0 r_l4_dport_change_en=1 r_l4_dport=bbbb
+
+*** check key mask :
+k_sip key=1647392143=0x6231358f mask=0xffffffff (32bit)
+k_dip key=316279094=0x12da0936 mask=0xffffffff (32bit)
+k_l4_dport key=7781=0x1e65 mask=0xffff (16bit)
+k_l4_sport key=40001=0x9c41 mask=0xffff (16bit)
+k_ip_protocol key=17=0x11 mask=0xff (8bit)
+
+*** check result :
+r_out_port=5=0x5 (6bit)
+r_out_que=0=0x0 (9bit)
+r_l4_dport=48059=0xbbbb (16bit)
+r_l4_dport_change_en=1=0x1 (1bit)
+
+*** acl_hgu_table_set
+[se_hash_multi_table_set] sdt_no is 164
+ KEY: start_bit:128, end_bit:231, location:2, key_size(Bytes)16.
+[PPS][hash_multi_extract_key] mask-start-bit: 128, bit_len:104, location:2
+[PPS][hash_multi_get_hash_table_and_key_width] key_size: 4, tbl_width:3
+[PPS][__se_hash_multi_table_set][L:1238] trans to single-hash
+ rsp_mode:0x3
+ table_id:0x0
+ key_size:0x4
+ tbl_width:0x3
+ hash_id:0x1
+ table_type:0x3
+
+ key_len:0x10
+Now age index [0x3]
+[se_hash_zcam_get_zcell_available_space] zblock_start: 2, zcell_start : 0, zblock_end: 3, zcell_end: 4
+[se_hash_zcam_get_zcell_available_space] crc16_rst is 0xd830
+[se_hash_zcam_get_zcell_available_space] cur_zcell_end: 4
+[se_hash_generate_hash_table] rsp_byte_len(32) < table_user_data_len(35)
+cmd_rgt: 0xf1030
+ rw_flag = 0, mask = 0xf, reg_sram_flag = 0
+ zgroup_id = 1, zblock_id = 0, zcell_id = 0x0, addr = 0x30
+[se_alg_write] offset = 0, size = 16
+[pps_glb_get_se_ekey_agclk_en] return ok. value = 0
+[se_alg_hash_table_write] success
+
+add mask(0xf) to zgroup : 1, zblock : 0, zcell : 0, addr : 0x30. now mask is 0xf
+[__se_hash_table_set_by_sdt_info] add new table
+[PPS][__se_hash_multi_table_set][L:1262] multi-hash add success
+
+table_info_data multi_info=ffffffc01e981200 node_info=ffffffc01e135b80 sdt_info[0]=0x800 sdt_info[1]=0x33a03000
+
+
+***del this table use: ***
+echo multi_info=ffffffc01e981200 node_info=ffffffc01e135b80 > acl_hgu_table_del 
+
+[exit 0]

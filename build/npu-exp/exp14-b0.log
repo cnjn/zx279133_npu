@@ -1,0 +1,24 @@
+=== A
+mac sa lookup fail cnt:                           1040
+port id 54 output multicast cnt:          38
+port id 58 output multicast cnt:          38
+port id 59 output multicast cnt:          38
+port id 60 output multicast cnt:          38
+port id 61 output multicast cnt:          38
+port id 62 output multicast cnt:          38
+=== B
+mac sa lookup fail cnt:                           1116
+port id 54 output multicast cnt:          190
+port id 58 output multicast cnt:          190
+port id 59 output multicast cnt:          190
+port id 60 output multicast cnt:          190
+port id 61 output multicast cnt:          190
+port id 62 output multicast cnt:          190
+DONE
+[exit 0]
+PINGDURING
+150 packets transmitted, 150 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.458/0.691/1.156/0.099 ms
+PINGAFTER
+5 packets transmitted, 5 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.556/0.682/0.870/0.119 ms

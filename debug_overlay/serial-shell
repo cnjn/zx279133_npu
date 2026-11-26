@@ -1,0 +1,12 @@
+#!/bin/sh
+# Invoked only by the lab inittab on the physical UART.
+unset ENV BASH_ENV
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/debug/bin:/debug/applets
+HOME=/root
+TERM=vt100
+PS1='ont-shell:\w # '
+export PATH HOME TERM PS1
+umask 077
+cd /root || cd /
+printf '\nZX279133 lab shell: vendor startup and network services are disabled.\n'
+exec /bin/busybox ash -i

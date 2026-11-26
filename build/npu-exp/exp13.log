@@ -1,0 +1,8 @@
+=== A
+mac sa lookup fail cnt:                           77375
+=== B
+mac sa lookup fail cnt:                           77375
+DONE
+[exit 0]
+150 packets transmitted, 1 packets received, 99.3% packet loss
+round-trip min/avg/max/stddev = 0.693/0.693/0.693/nan ms

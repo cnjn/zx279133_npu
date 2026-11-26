@@ -1,0 +1,31 @@
+      8    rsp drop pc: 0x14e9
+      8      busy(3):                            1
+      1 se2ppu stat key rsp sop l(0x2050):              305688
+      1 se2ppu stat key rsp eop l(0x2088):              305688
+      1 se2ppu i key rsp sop l(0x2040):                 307222
+      1 se2ppu i key rsp eop l(0x2078):                 307222
+      1 se2ppu e key rsp sop l(0x2048):                 57816
+      1 se2ppu e key rsp eop l(0x2080):                 57816
+      1 se2ppu e key glock rsp sop l(0x2070):            9
+      1 se2ppu e key glock rsp eop l(0x20a8):            9
+      1 se2ppu e key dpi rsp sop l(0x2058):              30
+      1 se2ppu e key dpi rsp eop l(0x2090):              30
+      1 se2ppu e key cop rsp sop l(0x2060):              2657
+      1 se2ppu e key cop rsp eop l(0x2098):              2657
+      1 ppu_mec_group_desc_vld_l(0x9000):                 62210
+      1 ppu2se stat key req vld l(0x2038):              305700
+      1 ppu2se i key req vld l(0x2030):                 307222
+      1 ppu2se e key req vld l(0x2000):                  57816
+      1 ppu2se e key glock req vld l(0x2028):            9
+      1 ppu2se e key dpi req vld l(0x2018):              30
+      1 ppu2se e key cop req vld l(0x2010):              2657
+      1 pbu0_mec_ifb_rsp_vld_l(0x9010):                   497680
+      1 pbu0_mec_ifb_rsp_sop_l(0x9018):                   62210
+      1 pbu0_mec_ifb_rsp_eop_l(0x9020):                   62210
+      1 pbu0_cluster0_mf_in_vld_l:                497680
+      1 pbu0_cluster0_mf_in_sop_l:                62210
+      1 pbu0_cluster0_mf_in_eop_l:                62210
+      1 pbu00_cluster0_mf_in_eop_l:                62210
+      1 mec_smct_uc_req_l(0x9030):                       62210
+      1 mec_pbu0_ifb_req_vld_l(0x9008):                   62210
+[exit 0]

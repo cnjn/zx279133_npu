@@ -1,0 +1,49 @@
+--w-------    1 root     root          4096 Jan  1 00:17 [0;0mqmg_debug/queue_stats[m
+-r--------    1 root     root          4096 Jan  1 00:45 [0;0mqmg_debug/woe_stats[m
+-r--------    1 root     root          4096 Jan  1 00:45 [0;0mssch_debug/ssch_port_stats[m
+     illegal_instr(0):                   0
+   rsp drop pc: 0xd66
+ ME7:
+   drop reason:
+     packet slice error(5):              0
+     err flownum or duptbale invalid(4): 0
+     busy(3):                            1
+     memory overflow(2):                 0
+     rsp drop(1):                        0
+     illegal_instr(0):                   0
+   rsp drop pc: 0xd66
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+product_type_check
+-------------------help--------------------------
+ cat ssch_stats
+ cat ssch_port_stats
+ cat ssch_all_stats_monitor
+ cat ssch_uni_que_traffic_sharp    show all uni queue traffic sharp
+ echo [ssch_port] [queue_id] [enable] [band_width] > ssch_uni_que_traffic_sharp    ssch_port: 0~6,uni 7,loop; queue_id:0~7 width: kbps
+ cat ssch_qos_port_schedule    show all uni queue qos schedule(wrr/sp) info
+ echo [ssch_port] [queue_id] [ssch_qos_mode] [weight] > ssch_qos_port_schedule    ssch_port: 0~6,uni 7,loop; queue_id:0~7 ssch_qos_mode:1,sp 0:dwrr dwrr_weight:1~1023(sp input 0)
+-------------------help--------------------------
+ cat stats
+ echo [queue_num] > queue_stats queue_num:0~8,queue_num=0~7 show single queue,queue_num =8 show all queue
+ cat vr_queue_stats
+ cat req_empty_err_monitor
+ cat err_monitor
+ cat status_monitor
+ echo [queue_num] > queue_ptr_ram queue_num:0~384,queue_num=0~383 show single queue,queue_num =384 show all queue
+[exit 0]

@@ -1,0 +1,57 @@
+  640-  647 icmp=ok tcp=ok ekey_sport=False
+  648-  655 icmp=DEAD tcp=DEAD ekey_sport=False
+  656-  663 icmp=ok tcp=ok ekey_sport=False
+  664-  671 icmp=ok tcp=ok ekey_sport=False
+  672-  679 icmp=ok tcp=ok ekey_sport=False
+  680-  687 icmp=ok tcp=ok ekey_sport=False
+  688-  695 icmp=ok tcp=ok ekey_sport=False
+  696-  703 icmp=ok tcp=ok ekey_sport=False
+ 3136- 3143 icmp=ok tcp=ok ekey_sport=False
+ 3144- 3151 icmp=ok tcp=ok ekey_sport=False
+ 3152- 3159 icmp=ok tcp=ok ekey_sport=False
+ 3160- 3167 icmp=ok tcp=ok ekey_sport=False
+ 3168- 3175 icmp=ok tcp=ok ekey_sport=False
+ 3176- 3183 icmp=ok tcp=ok ekey_sport=False
+ 3184- 3191 icmp=ok tcp=ok ekey_sport=False
+ 3192- 3199 icmp=ok tcp=ok ekey_sport=False
+ 3392- 3399 icmp=ok tcp=ok ekey_sport=False
+ 3400- 3407 icmp=ok tcp=ok ekey_sport=False
+ 3408- 3415 icmp=ok tcp=ok ekey_sport=False
+ 3416- 3423 icmp=ok tcp=ok ekey_sport=False
+ 3424- 3431 icmp=DEAD tcp=DEAD ekey_sport=False
+ 3432- 3439 icmp=ok tcp=ok ekey_sport=False
+ 3440- 3447 icmp=DEAD tcp=DEAD ekey_sport=False
+ 3448- 3455 icmp=DEAD tcp=DEAD ekey_sport=False
+ 4160- 4167 icmp=ok tcp=ok ekey_sport=False
+ 4168- 4175 icmp=ok tcp=ok ekey_sport=False
+ 4176- 4183 icmp=ok tcp=ok ekey_sport=False
+ 4184- 4191 icmp=ok tcp=ok ekey_sport=False
+ 4192- 4199 icmp=ok tcp=ok ekey_sport=False
+ 4200- 4207 icmp=ok tcp=ok ekey_sport=False
+ 4208- 4215 icmp=ok tcp=ok ekey_sport=False
+ 4216- 4223 icmp=DEAD tcp=DEAD ekey_sport=False
+ 4224- 4231 icmp=ok tcp=ok ekey_sport=False WEDGED->reboot True
+ 4232- 4239 icmp=DEAD tcp=DEAD ekey_sport=False
+ 4240- 4247 icmp=DEAD tcp=DEAD ekey_sport=False
+ 4248- 4255 icmp=DEAD tcp=DEAD ekey_sport=False WEDGED->reboot True
+ 4256- 4263 icmp=ok tcp=ok ekey_sport=False
+ 4264- 4271 icmp=ok tcp=ok ekey_sport=False
+ 4272- 4279 icmp=ok tcp=ok ekey_sport=False
+ 4280- 4287 icmp=ok tcp=ok ekey_sport=False
+ 4352- 4359 icmp=ok tcp=ok ekey_sport=False
+ 4360- 4367 icmp=ok tcp=ok ekey_sport=False
+ 4368- 4375 icmp=ok tcp=ok ekey_sport=False
+ 4376- 4383 icmp=ok tcp=ok ekey_sport=False
+ 4384- 4391 icmp=ok tcp=ok ekey_sport=False
+ 4392- 4399 icmp=ok tcp=ok ekey_sport=False
+ 4400- 4407 icmp=ok tcp=ok ekey_sport=False
+ 4408- 4415 icmp=DEAD tcp=DEAD ekey_sport=False
+ 4416- 4423 icmp=ok tcp=ok ekey_sport=False
+ 4424- 4431 icmp=ok tcp=ok ekey_sport=False
+ 4432- 4439 icmp=DEAD tcp=DEAD ekey_sport=False WEDGED->reboot True
+ 4440- 4447 icmp=DEAD tcp=DEAD ekey_sport=False
+ 4448- 4455 icmp=ok tcp=ok ekey_sport=False
+ 4456- 4463 icmp=ok tcp=ok ekey_sport=False
+ 4464- 4471 icmp=ok tcp=ok ekey_sport=False
+ 4472- 4479 icmp=ok tcp=ok ekey_sport=False
+DONE
